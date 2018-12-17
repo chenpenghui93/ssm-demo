@@ -1,0 +1,22 @@
+CREATE
+DATABASE
+`ssm`
+CHARACTER
+SET
+utf8;
+
+DROP TABLE IF EXISTS  `ssm`.`user`;
+CREATE TABLE `ssm`.`user`
+(
+  `id`   SMALLINT(16) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(16),
+  `sex`  VARCHAR(2),
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB CHARSET=utf8;
+CREATE TABLE `ssm`.`usr`
+(
+  `id`   SMALLINT(16) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(16),
+  `sex`  VARCHAR(2),
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB CHARSET=utf8;
