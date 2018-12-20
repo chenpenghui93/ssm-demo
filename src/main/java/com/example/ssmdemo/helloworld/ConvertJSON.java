@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * java对象与json之间转换
- * 1. fastjson
- * 2. java -> json：JSON.toJSONString()
- * 3. json -> java：JSON.parseObject()
+ * java对象与json之间互转
+ * JSON：http://www.json.org/json-zh.html
+ * fastjson：https://github.com/alibaba/fastjson/wiki
+ * API：JSON.toJSONString()，JSON.parseObject()
  *
  * @author cph
  * @version 1.0.0
