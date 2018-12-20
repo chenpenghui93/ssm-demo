@@ -4,7 +4,7 @@
 
     <!-- 根据姓名查询用户 -->
     <select id="selectUserByName"  resultType="User">
-        SELECT * FROM tb_user WHERE name = #{name}
+        SELECT * FROM tb_user t WHERE t.name = #{name}
     </select>
 
     <!-- 查询所有用户 -->
@@ -15,6 +15,10 @@
     <!-- 查询json形式 -->
     <select id="getJSONString" resultType="Map">
         SELECT * FROM tb_test t
+    </select>
+
+    <select id="getUserById" parameterType="Map" resultType="Map">
+        SELECT * FROM tb_user t WHERE t.id = #{id};
     </select>
 
 </mapper>

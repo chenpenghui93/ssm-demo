@@ -39,4 +39,12 @@ public interface UserDao {
      */
     Map getJSONString();
 
+    /**
+     * 根据ID查询用户
+     *
+     * @param map
+     * @return
+     */
+    Map getUserById(Map map);
+
 }
