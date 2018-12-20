@@ -14,11 +14,11 @@ public class UsualTest {
 
     public static void main(String[] args) {
 
-        MapTest();
+        mapTest();
 
     }
 
-    private static void MapTest() {
+    private static void mapTest() {
 
         Map map = new HashMap(16);
         map.put("issues_name", "辨识及吸引高端顾客");
