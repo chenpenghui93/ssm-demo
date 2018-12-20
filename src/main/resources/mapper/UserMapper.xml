@@ -6,4 +6,8 @@
         SELECT * FROM tb_user WHERE name = #{name}
     </select>
 
+    <select id="getAll" resultType="Map">
+        SELECT * FROM tb_user t
+    </select>
+
 </mapper>

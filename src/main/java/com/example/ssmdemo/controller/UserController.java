@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author cph
  * @version 1.0
@@ -21,5 +24,11 @@ public class UserController {
     public User getUser() {
         User user = userDao.selectUserByName("张三");
         return user;
+    }
+
+    @RequestMapping(value = "getAll")
+    public List getAll(){
+        List<Map> userList = userDao.getAll();
+        return userList;
     }
 }
