@@ -1,4 +1,4 @@
-package com.example.ssmdemo.util;
+package com.example.ssmdemo.helloworld;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -10,7 +10,7 @@ import java.util.Set;
  * @version 1.0.0
  * @date 2018/12/18
  */
-public class TestMethod {
+public class UsualTest {
 
     public static void main(String[] args) {
 
@@ -18,7 +18,7 @@ public class TestMethod {
 
     }
 
-    private static void MapTest(){
+    private static void MapTest() {
 
         Map map = new HashMap(16);
         map.put("issues_name", "辨识及吸引高端顾客");
@@ -32,8 +32,6 @@ public class TestMethod {
 
         System.out.println(strat);
     }
-
-
 
 
 }
