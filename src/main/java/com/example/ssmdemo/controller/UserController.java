@@ -21,18 +21,33 @@ public class UserController {
     @Autowired
     UserDao userDao;
 
+    /**
+     * 根据姓名查询用户
+     *
+     * @return
+     */
     @RequestMapping(value = "getUser")
     public User getUser() {
         User user = userDao.selectUserByName("张三");
         return user;
     }
 
+    /**
+     * 查询所有用户
+     *
+     * @return
+     */
     @RequestMapping(value = "getAll")
     public List getAll(){
         List<Map> userList = userDao.getAll();
         return userList;
     }
 
+    /**
+     * 查询json形式
+     *
+     * @return
+     */
     @RequestMapping(value = "getJSONString")
     public List<Map> getJSONString() {
 
@@ -40,8 +55,12 @@ public class UserController {
         String string = map.get("text").toString();
         System.out.println(string);
 
-        List<Map> list = JSON.parseObject(string, List.class);
-        System.out.println(list);
-        return list;
+        List<Map> objectList = JSON.parseObject(string, List.class);
+        System.out.println(objectList);
+
+        List<Map> arrayList = JSON.parseArray(string,Map.class);
+        System.out.println(arrayList);
+
+        return objectList;
     }
 }
