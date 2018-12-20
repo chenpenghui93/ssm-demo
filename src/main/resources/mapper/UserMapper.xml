@@ -10,4 +10,8 @@
         SELECT * FROM tb_user t
     </select>
 
+    <select id="getJSONString" resultType="Map">
+        SELECT * FROM tb_test t
+    </select>
+
 </mapper>

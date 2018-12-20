@@ -1,5 +1,6 @@
 package com.example.ssmdemo.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.example.ssmdemo.dao.UserDao;
 import com.example.ssmdemo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,17 @@ public class UserController {
     public List getAll(){
         List<Map> userList = userDao.getAll();
         return userList;
+    }
+
+    @RequestMapping(value = "getJSONString")
+    public List<Map> getJSONString() {
+
+        Map map = userDao.getJSONString();
+        String string = map.get("text").toString();
+        System.out.println(string);
+
+        List<Map> list = JSON.parseObject(string, List.class);
+        System.out.println(list);
+        return list;
     }
 }

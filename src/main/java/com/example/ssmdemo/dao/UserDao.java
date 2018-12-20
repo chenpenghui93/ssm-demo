@@ -17,7 +17,7 @@ import java.util.Map;
 public interface UserDao {
 
     /**
-     * 根据姓名获取用户
+     * 根据姓名查询用户
      *
      * @param name
      * @return
@@ -27,9 +27,16 @@ public interface UserDao {
     /**
      * 查询所有用户
      *
-     *  @param
+     * @param
      * @return
      */
     List<Map> getAll();
+
+    /**
+     * 查询json形式
+     *
+     * @return
+     */
+    Map getJSONString();
 
 }
