@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,8 +77,31 @@ public class UserController {
         Map params = new HashMap();
         params.put("id", obj.get("id"));
         Map map = userDao.getUserById(params);
-        //JSONObject json = JSONObject.toJSON(map);
-        response.setHeader("Content-type", "application/json;charset=utf-8");
+        String data = JSON.toJSONString(map);
+
+//        OutputStream outputStream = null;
+//        try {
+//            response.setHeader("Content-type", "application/json;charset=utf-8");
+//            outputStream = response.getOutputStream();
+//            outputStream.write(data.getBytes("utf-8"));
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+
+        PrintWriter printWriter = null;
+        try {
+            response.setHeader("Content-type", "application/json;charset=utf-8");
+            printWriter = response.getWriter();
+            printWriter.print(data);
+        }catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (null != printWriter) {
+                printWriter.close();
+            }
+        }
+
         return response;
+
     }
 }
