@@ -6,9 +6,9 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 /**
- * 发送简单 E-mail
- * 发送HTML E-mail
- * 发送带附件的E-mail
+ * 1.发送简单 E-mail
+ * 2.发送HTML E-mail
+ * 3.发送带附件的E-mail
  *
  * @author cph
  * @version 1.0.0
@@ -17,8 +17,6 @@ import java.util.Properties;
 public class SendEmail {
 
     public static void main(String[] args) {
-
-
 
     }
 
