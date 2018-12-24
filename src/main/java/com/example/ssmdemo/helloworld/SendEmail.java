@@ -1,13 +1,10 @@
 package com.example.ssmdemo.helloworld;
 
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
-import javax.mail.*;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 import java.util.Properties;
 
 /**
@@ -60,24 +57,24 @@ public class SendEmail {
             message.setSubject("神秘的西夏");
 
             //邮件正文-简单邮件
-            //message.setText("请查收数据并反馈意见");
+            message.setText("神秘的西夏");
 
-            //邮件正文-HTML邮件
-            //message.setContent("<h1>hello, world!<h1>", "text/html");
+//            //邮件正文-HTML邮件
+//            message.setContent("<h1>hello, world!<h1>", "text/html");
 
-            //邮件正文-带附件邮件
-            BodyPart messageBodyPart = new MimeBodyPart();
-            messageBodyPart.setText("大白高的王，有十种吉祥？");
-            Multipart multipart = new MimeMultipart();
-            multipart.addBodyPart(messageBodyPart);
-            //附件
-            messageBodyPart = new MimeBodyPart();
-            String filename = "D:\\devRepo\\ssm-demo\\src\\main\\resources\\static\\img\\road.jpg";
-            DataSource dataSource = new FileDataSource(filename);
-            messageBodyPart.setDataHandler(new DataHandler(dataSource));
-            messageBodyPart.setFileName(filename);
-            multipart.addBodyPart(messageBodyPart);
-            message.setContent(multipart);
+//            //邮件正文-带附件邮件
+//            BodyPart messageBodyPart = new MimeBodyPart();
+//            messageBodyPart.setText("大白高的王，有十种吉祥？");
+//            Multipart multipart = new MimeMultipart();
+//            multipart.addBodyPart(messageBodyPart);
+//            //附件
+//            messageBodyPart = new MimeBodyPart();
+//            String filename = "D:\\devRepo\\ssm-demo\\src\\main\\resources\\static\\img\\road.jpg";
+//            DataSource dataSource = new FileDataSource(filename);
+//            messageBodyPart.setDataHandler(new DataHandler(dataSource));
+//            messageBodyPart.setFileName(filename);
+//            multipart.addBodyPart(messageBodyPart);
+//            message.setContent(multipart);
 
             //发送邮件
             transport.sendMessage(message, message.getAllRecipients());
