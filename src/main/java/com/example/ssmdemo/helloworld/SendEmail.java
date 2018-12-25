@@ -37,16 +37,19 @@ public class SendEmail {
         properties.put("mail.transport.protocol", "smtp");
         properties.put("mail.smtp.auth", true);
 
-        //获取session对象
-        Session session = Session.getInstance(properties);
-        //控制台打印会话日志
-        session.setDebug(true);
-
         try {
+            //===========第一步：获取Session对象=============
+            //获取session对象
+            Session session = Session.getInstance(properties);
+            //控制台打印会话日志
+            session.setDebug(true);
+
+            //===========第二步：获取Transport对象============
             //通过session获取Transport对象
             Transport transport = session.getTransport();
             transport.connect(from, "客户端授权密码");
 
+            //===========第三步：创建MimeMessage对象并设置信息==
             //创建邮件对象
             MimeMessage message = new MimeMessage(session);
             //设置发件人
@@ -76,6 +79,7 @@ public class SendEmail {
 //            multipart.addBodyPart(messageBodyPart);
 //            message.setContent(multipart);
 
+            //============第四步：使用Transport对象发送邮件==========
             //发送邮件
             transport.sendMessage(message, message.getAllRecipients());
 
