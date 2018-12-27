@@ -8,8 +8,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * 1.http请求
- * 2.https请求
+ * java发送http请求
+ * https://blog.csdn.net/guozili1/article/details/53995121
  *
  * @author cph
  * @version 1.0
@@ -18,10 +18,8 @@ import java.net.URL;
 public class HttpRequest {
 
     public static void main(String[] args) {
-
         String string = httpRequest("http://www.qq.com", "GET", null);
         System.out.println(string);
-
     }
 
     /**
@@ -33,16 +31,14 @@ public class HttpRequest {
      * @return
      */
     public static String httpRequest(String requestUrl, String requestMethod, String outputString) {
-
         StringBuffer buffer = null;
         try {
             URL url = new URL(requestUrl);
-            HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
             connection.setDoOutput(true);
             connection.setRequestMethod(requestMethod);
             connection.connect();
-
             if (null != outputString) {
                 OutputStream outputStream = connection.getOutputStream();
                 outputStream.write(outputString.getBytes("utf-8"));
@@ -57,7 +53,8 @@ public class HttpRequest {
             while ((line = bufferedReader.readLine()) != null) {
                 buffer.append(line);
             }
-        }catch (Exception e) {
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
