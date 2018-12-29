@@ -1,9 +1,6 @@
 package com.example.ssmdemo.helloworld;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author cph
@@ -14,11 +11,12 @@ public class UsualTest {
 
     public static void main(String[] args) {
 
-        mapTest();
+        //mapTest();
+        arrayTest();
 
     }
 
-    private static void mapTest() {
+    public static void mapTest() {
 
         Map map = new HashMap(16);
         map.put("issues_name", "辨识及吸引高端顾客");
@@ -31,6 +29,20 @@ public class UsualTest {
         strat.add(map.get("categories_name").toString());
 
         System.out.println(strat);
+    }
+
+    public static void arrayTest() {
+        ArrayList arrayList = new ArrayList();
+        Map map1 = new HashMap();
+        map1.put("a","1");
+        map1.put("b","2");
+        Map map2 = new HashMap();
+        map2.put("c","3");
+        arrayList.add(map1);
+        arrayList.add(map2);
+
+        System.out.println(arrayList);
+        System.out.println(arrayList.toArray());
     }
 
 
