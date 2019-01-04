@@ -29,6 +29,14 @@ public class UserController {
     UserDao userDao;
 
     /**
+     *
+     */
+    @RequestMapping(value = "/")
+    public String hello() {
+        return "hello!";
+    }
+
+    /**
      * 根据姓名查询用户
      *
      * @return
@@ -45,7 +53,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "getAll")
-    public List getAll(){
+    public List getAll() {
         List<Map> userList = userDao.getAll();
         return userList;
     }
@@ -65,7 +73,7 @@ public class UserController {
         List<Map> objectList = JSON.parseObject(string, List.class);
         System.out.println(objectList);
 
-        List<Map> arrayList = JSON.parseArray(string,Map.class);
+        List<Map> arrayList = JSON.parseArray(string, Map.class);
         System.out.println(arrayList);
 
         return objectList;
@@ -73,7 +81,7 @@ public class UserController {
 
     @RequestMapping(value = "getUserById")
     @ResponseBody
-    public HttpServletResponse getUserById(HttpServletRequest request, HttpServletResponse response, @RequestBody JSONObject obj){
+    public HttpServletResponse getUserById(HttpServletRequest request, HttpServletResponse response, @RequestBody JSONObject obj) {
         Map params = new HashMap();
         params.put("id", obj.get("id"));
         Map map = userDao.getUserById(params);
@@ -93,7 +101,7 @@ public class UserController {
             response.setHeader("Content-type", "application/json;charset=utf-8");
             printWriter = response.getWriter();
             printWriter.print(data);
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             if (null != printWriter) {
