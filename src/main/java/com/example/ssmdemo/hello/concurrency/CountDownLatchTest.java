@@ -29,24 +29,24 @@ public class CountDownLatchTest {
         System.out.println("所有线程执行完成");
 
     }
+}
 
-    static class TranslateThread extends Thread {
-        private String content;
-        private final CountDownLatch count;
+    class TranslateThread extends Thread {
+    private String content;
+    private final CountDownLatch count;
 
-        public TranslateThread(String content, CountDownLatch count) {
-            this.content = content;
-            this.count = count;
+    public TranslateThread(String content, CountDownLatch count) {
+        this.content = content;
+        this.count = count;
+    }
+
+    @Override
+    public void run() {
+        if (Math.random() > 0.5) {
+            throw new RuntimeException("原文存在非法字符！");
         }
 
-        @Override
-        public void run() {
-            if (Math.random() > 0.5) {
-                throw new RuntimeException("原文存在非法字符！");
-            }
-
-            System.out.println(content + " 的翻译已经完成，译文是。。。");
-            count.countDown();
-        }
+        System.out.println(content + " 的翻译已经完成，译文是。。。");
+        count.countDown();
     }
 }
