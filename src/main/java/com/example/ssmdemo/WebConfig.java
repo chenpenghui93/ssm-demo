@@ -1,7 +1,7 @@
 package com.example.ssmdemo;
 
 import com.example.ssmdemo.hello.SpringMVCInterceptor;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @version 1.0.0
  * @date 2019/1/8
  */
-@Component
+@Configuration
 public class WebConfig implements WebMvcConfigurer {
 
     /**
