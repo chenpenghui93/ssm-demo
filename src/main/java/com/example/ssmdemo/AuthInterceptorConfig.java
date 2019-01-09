@@ -12,15 +12,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @date 2019/1/8
  */
 @Configuration
-public class InterceptorConfig implements WebMvcConfigurer {
+public class AuthInterceptorConfig implements WebMvcConfigurer {
 
     /**
      * 实例化自定义拦截器类
      *
      * @return
      */
-    SpringMVCInterceptor springMVCInterceptor(){
-        return new SpringMVCInterceptor();
+    AuthInterceptor springMVCInterceptor(){
+        return new AuthInterceptor();
     }
 
     /**

@@ -15,23 +15,50 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2019/1/8
  */
 @Configuration
-public class SpringMVCInterceptor implements HandlerInterceptor {
+public class AuthInterceptor implements HandlerInterceptor {
 
+    /**
+     * 请求被处理之前调用
+     *
+     * @param request
+     * @param response
+     * @param handler
+     * @return
+     * @throws Exception
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("preHandle···请求被处理之前调用");
+        System.out.println("AuthInterceptor.preHandle()");
         return true;
     }
 
+    /**
+     * 请求被处理，视图渲染之前调用（controller调用之后）
+     *
+     * @param request
+     * @param response
+     * @param handler
+     * @param modelAndView
+     * @throws Exception
+     */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        System.out.println("postHandle···请求被处理，视图渲染之前调用（controller调用之后）");
+        System.out.println("AuthInterceptor.postHandle()");
 
     }
 
+    /**
+     * 请求结束之后调用
+     *
+     * @param request
+     * @param response
+     * @param handler
+     * @param ex
+     * @throws Exception
+     */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        System.out.println("afterCompletion···请求结束之后调用");
+        System.out.println("AuthInterceptor.afterCompletion()");
 
     }
 }
