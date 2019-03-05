@@ -1,4 +1,4 @@
-package com.example.ssmdemo.hello.wordinput;
+package com.example.ssmdemo.hello.template;
 
 import org.apache.poi.POIXMLDocument;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
