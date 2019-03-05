@@ -31,7 +31,7 @@ public class UserController {
     /**
      *
      */
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/hello")
     public String hello() {
         return "hello!";
     }
