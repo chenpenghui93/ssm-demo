@@ -1,4 +1,4 @@
-package com.example.ssmdemo.hello;
+package com.example.ssmdemo.hello.email;
 
 
 import javax.mail.Message;

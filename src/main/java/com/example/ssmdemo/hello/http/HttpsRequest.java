@@ -1,4 +1,4 @@
-package com.example.ssmdemo.hello;
+package com.example.ssmdemo.hello.http;
 
 import javax.net.ssl.*;
 import java.io.BufferedReader;

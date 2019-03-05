@@ -1,4 +1,4 @@
-package com.example.ssmdemo.hello;
+package com.example.ssmdemo.hello.json;
 
 import com.alibaba.fastjson.JSON;
 
