@@ -18,7 +18,7 @@ public class WordTemplate {
 
     public static void main(String[] args) {
         String content = readFromWord("D:/", "股权认购模板.docx");
-        sendHtmlEmail("chenpenghui@hisense.com", "认购征询通知", content);
+        sendHtmlEmail("xxx", "认购征询通知", content);
     }
 
     /**
@@ -60,7 +60,7 @@ public class WordTemplate {
             Session session = Session.getInstance(properties);
             session.setDebug(true);
             Transport transport = session.getTransport();
-            transport.connect(from, "Mcmadmin123");
+            transport.connect(from, "xxx");
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             //设置收件人，type：TO/CC/BCC分别表示发送/抄送/密送
