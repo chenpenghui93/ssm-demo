@@ -21,11 +21,11 @@ public class SendEmail {
 
     public static void main(String[] args) {
 
-        sendEmail();
+        sendSimpleEmail();
 
     }
 
-    public static void sendEmail() {
+    public static void sendSimpleEmail() {
         //收件邮箱
         String to = "cph_2001@163.com";
         //发件邮箱
@@ -88,5 +88,9 @@ public class SendEmail {
             e.printStackTrace();
         }
     }
+
+    public static void sendAttachmentEmail(){}
+
+    public static void sendHtmlEmail(){}
 
 }
