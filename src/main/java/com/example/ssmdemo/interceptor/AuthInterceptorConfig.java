@@ -1,5 +1,6 @@
-package com.example.ssmdemo;
+package com.example.ssmdemo.interceptor;
 
+import com.example.ssmdemo.interceptor.AuthInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

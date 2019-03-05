@@ -1,4 +1,4 @@
-package com.example.ssmdemo;
+package com.example.ssmdemo.filter;
 
 import javax.servlet.*;
 import javax.servlet.FilterConfig;

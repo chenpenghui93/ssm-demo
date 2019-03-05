@@ -1,4 +1,4 @@
-package com.example.ssmdemo;
+package com.example.ssmdemo.interceptor;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
