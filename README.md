@@ -1,5 +1,5 @@
 # ssm-demo
-基于Spring Boot+Maven的SSM框架整合实现基本的CRUD
+SSM框架整合，java相关方法、工具等的测试
 
 # 工具、技术
 - Intellij IDEA 2018.2.4
