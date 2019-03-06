@@ -36,7 +36,7 @@ public class SendEmailService {
             //2.获取transport对象
             Transport transport = session.getTransport();
             transport.connect(from, "Mcmadmin123");
-            //3.创建MimeMessage对象并设置相关信息
+            //3.创建MimeMessage对象并设置收件人、发送方式、发件人、主题、内容等
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             //TO/CC/BCC分别表示发送/抄送/密送
