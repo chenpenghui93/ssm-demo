@@ -5,12 +5,14 @@ import org.apache.poi.xwpf.usermodel.*;
 import java.io.FileOutputStream;
 
 /**
+ * http://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xwpf/usermodel/examples/SimpleDocument.java
+ *
  * @author cph
  * @date 2019/3/6
  **/
 public class SimpleDocument {
     public static void main(String[] args) {
-        try (XWPFDocument doc = new XWPFDocument()){
+        try (XWPFDocument doc = new XWPFDocument()) {
 
             XWPFParagraph p1 = doc.createParagraph();
             p1.setAlignment(ParagraphAlignment.CENTER);
@@ -85,10 +87,10 @@ public class SimpleDocument {
             r5.setText("The pangs of despised love, the law's delay, "
                     + "The insolence of office and the spurns " + ".......");
 
-            try (FileOutputStream out = new FileOutputStream("simple.docx")){
+            try (FileOutputStream out = new FileOutputStream("simple.docx")) {
                 doc.write(out);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

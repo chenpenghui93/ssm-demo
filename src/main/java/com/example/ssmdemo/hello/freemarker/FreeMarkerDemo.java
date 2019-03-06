@@ -1,4 +1,4 @@
-package com.example.ssmdemo.hello.template;
+package com.example.ssmdemo.hello.freemarker;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -16,6 +16,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+/**
+ * https://dkbalachandar.wordpress.com/2016/07/07/send-email-free-marker-template/
+ */
 public class FreeMarkerDemo {
 
     public static void main(String[] args) {
@@ -33,7 +36,6 @@ public class FreeMarkerDemo {
         try {
             Session session = Session.getInstance(properties);
             session.setDebug(true);
-
             Transport transport = session.getTransport();
             transport.connect(from, "");
             MimeMessage message = new MimeMessage(session);
@@ -41,14 +43,14 @@ public class FreeMarkerDemo {
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
             message.setSubject("股权认购通知书（freemarker+java mail）");
 
-            //freemarker template
+            //获取已定义的freemarker模板
             Configuration cfg = new Configuration();
             cfg.setClassForTemplateLoading(FreeMarkerDemo.class, "/static/");
             cfg.setDefaultEncoding("UTF-8");
             cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
             Template template = cfg.getTemplate("emailTemplate.ftl");
 
-            //custom data
+            //动态数据
             Map paramMap = new HashMap();
             paramMap.put("name", "");
             paramMap.put("date", String.valueOf(Calendar.getInstance().getTime()));
