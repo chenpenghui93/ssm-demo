@@ -50,7 +50,7 @@ public class SendEmailService {
                 System.out.println("=====simple email=====");
                 message.setText(content);
             } else if (type == "html") {
-                System.out.println("=====html email ext/html;charset=gbk =====");
+                System.out.println("=====html email text/html;charset=gbk =====");
                 message.setContent(content, "text/html;charset=gbk");
             } else if (type == "attachment") {
                 System.out.println("=====attachment email=====");
