@@ -1,5 +1,7 @@
 package com.example.ssmdemo.util;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 import javax.activation.DataHandler;
@@ -17,6 +19,7 @@ import java.util.Properties;
  * @date 2019/3/6
  **/
 @Service
+@ComponentScan
 public class SendEmailService {
 
     public void sendEmail(String type, String to, String subject, String content) {
