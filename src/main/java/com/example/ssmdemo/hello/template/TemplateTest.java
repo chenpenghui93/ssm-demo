@@ -18,25 +18,25 @@ import java.util.Map;
 public class TemplateTest {
 
     public static void main(String[] args) throws IOException {
-        //准备数据
+        //1.准备数据
         Map dataMap = new HashMap();
         dataMap.put("name", "张三");
         dataMap.put("date", "2019年3月11日");
 
-        //读取word模板
+        //2.读取word模板
         File inputFile = new File("D:\\devRepo\\zTemplate\\认购出资模板.docx");
         FileInputStream fileInputStream = new FileInputStream(inputFile);
         Template template = new Template(fileInputStream);
 
-        //替换数据
+        //3.替换数据
         template.replaceDocumnet(dataMap);
 
-        //生成文件
+        //4.生成文件
         File outputFile = new File("D:\\devRepo\\zTemplate\\认购出资实例.docx");
         FileOutputStream fileOutputStream = new FileOutputStream(outputFile);
         template.getDocument().write(fileOutputStream);
 
-        //转换为html
+        //5.转换为html
         File wordFile = new File("D:\\devRepo\\zTemplate\\认购出资实例.docx");
         InputStream inputStream = new FileInputStream(wordFile);
         XWPFDocument document = new XWPFDocument(inputStream);
@@ -45,7 +45,7 @@ public class TemplateTest {
         OutputStream out = new FileOutputStream(htmlFile);
         XHTMLConverter.getInstance().convert(document, out, null);
 
-        //读取html
+        //6.读取html
         String content = "";
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("D:\\devRepo\\zTemplate\\认购出资实例.html"));
@@ -58,7 +58,7 @@ public class TemplateTest {
             e.printStackTrace();
         }
 
-        //发送邮件
+        //7.发送邮件
         SendEmailService sendEmailService = new SendEmailService();
         sendEmailService.sendEmail("html", "", "word2html", content);
 
