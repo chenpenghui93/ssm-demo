@@ -60,7 +60,7 @@ public class TemplateTest {
 
         //发送邮件
         SendEmailService sendEmailService = new SendEmailService();
-        sendEmailService.sendEmail("html", "chenpenghui@hisense.com", "word2html", content);
+        sendEmailService.sendEmail("html", "", "word2html", content);
 
     }
 }
