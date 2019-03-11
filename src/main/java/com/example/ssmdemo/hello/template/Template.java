@@ -51,6 +51,7 @@ public class Template {
             if (BodyElementType.TABLE.equals(body.getElementType())) {
                 //处理表格
 
+
             } else if (BodyElementType.PARAGRAPH.equals(body.getElementType())) {
                 //处理段落
                 XWPFParagraph paragraph = body.getBody().getParagraphArray(curP);
@@ -64,6 +65,11 @@ public class Template {
             } else {
                 System.out.println("模板文件错误：含有不支持的内容");
             }
+        }
+
+        //模板处理完毕后删除原始模板内容
+        for (int i=0; i<size; i++) {
+            document.removeBodyElement(i);
         }
 
     }
