@@ -50,7 +50,24 @@ public class Template {
             IBodyElement body = bodyElementList.get(i);
             if (BodyElementType.TABLE.equals(body.getElementType())) {
                 //处理表格
+                List<XWPFTable> tableList = body.getBody().getTables();
+                XWPFTable table = tableList.get(curT);
+                if (table != null) {
+                    List<XWPFTableCell> tableCellList = table.getRows().get(0).getTableCells();
+                    String tableText = table.getText();
+                    if (tableText.indexOf("##{foreach") > -1) {
+                        //查找到##{foreach标签，该表格需要循环处理
 
+                    } else if (tableText.indexOf("{") > -1) {
+                        //未找到##{foreach标签，查找到普通替换数据{}标签，该表格仅需要简单替换
+
+                    } else {
+                        //未找到任何标签，该表格是一个静态表格，仅需复制一个
+                        addTableInDocFooter(table, null, null, 0);
+                    }
+
+                    curT++;
+                }
 
             } else if (BodyElementType.PARAGRAPH.equals(body.getElementType())) {
                 //处理段落
@@ -68,8 +85,48 @@ public class Template {
         }
 
         //模板处理完毕后删除原始模板内容
-        for (int i=0; i<size; i++) {
+        for (int i = 0; i < size; i++) {
             document.removeBodyElement(i);
+        }
+
+    }
+
+    /**
+     * @param templateTable 模板表格
+     * @param list          循环数据集
+     * @param map           不循环数据集
+     * @param flag          0-静态表格 1-表格整体循环 2-表格内部行循环 3-表格不循环仅简单替换标签
+     */
+    public void addTableInDocFooter(XWPFTable templateTable, List<Map<String, Object>> list, Map<String, Object> map, int flag) {
+        if (flag == 0) {
+            //静态表格
+
+            //获取模板表格所有行
+            List<XWPFTableRow> tableRowList = templateTable.getRows();
+
+            //创建新表格，默认一行一列
+            XWPFTable newCreateTable = document.createTable();
+
+            for (int i = 0; i < tableRowList.size(); i++) {
+                XWPFTableRow newCreateRow = newCreateTable.createRow();
+                copyTableRow(newCreateRow, tableRowList.get(i));
+            }
+
+            //移除模板表格标识行
+            //newCreateTable.removeRow(0);
+            //添加回车换行
+            document.createParagraph();
+
+
+        } else if (flag == 1) {
+            //表格整体循环
+
+        } else if (flag == 2) {
+            //表格内部行循环
+
+        } else if (flag == 3) {
+            //表格不循环仅替换标签
+
         }
 
     }
@@ -103,6 +160,87 @@ public class Template {
         } else if (flag == 1) {
 
         }
+    }
+
+    /**
+     * 复制模板表格的行
+     *
+     * @param newRow
+     * @param templateRow
+     */
+    public void copyTableRow(XWPFTableRow newRow, XWPFTableRow templateRow) {
+        //模板行的列数
+        int templateRowCellSize = templateRow.getTableCells().size();
+
+        //为新加行添加与模板行相同的列数
+        for (int i = 0; i < templateRowCellSize - 1; i++) {
+            newRow.addNewTableCell();
+        }
+
+        //复制行样式
+        newRow.getCtRow().setTrPr(templateRow.getCtRow().getTrPr());
+
+        //复制单元格
+        for (int j = 0; j < newRow.getTableCells().size(); j++) {
+            copyTableCell(newRow.getCell(j), templateRow.getCell(j));
+        }
+    }
+
+    /**
+     * 复制模板表格的列
+     *
+     * @param newCell
+     * @param templateCell
+     */
+    public void copyTableCell(XWPFTableCell newCell, XWPFTableCell templateCell) {
+        //设置列样式
+        newCell.getCTTc().setTcPr(templateCell.getCTTc().getTcPr());
+
+        //删除新加列的原始段落
+        for (int k = 0; k < newCell.getParagraphs().size(); k++) {
+            newCell.removeParagraph(k);
+        }
+
+        //在新加列中添加新段落
+        for (XWPFParagraph templateParagraph : templateCell.getParagraphs()) {
+            XWPFParagraph newParagraph = newCell.addParagraph();
+            copyParagraph(newParagraph, templateParagraph);
+        }
+    }
+
+    /**
+     * 复制模板表格段落
+     *
+     * @param newParagraph
+     * @param templateParagraph
+     */
+    public void copyParagraph(XWPFParagraph newParagraph, XWPFParagraph templateParagraph) {
+        //设置段落样式
+        newParagraph.getCTP().setPPr(templateParagraph.getCTP().getPPr());
+
+        //删除新加段落的原始Run
+        for (int q = 0; q < newParagraph.getRuns().size(); q++) {
+            newParagraph.removeRun(q);
+        }
+
+        //在新加段落中添加新Run
+        for (XWPFRun templateRun : templateParagraph.getRuns()) {
+            XWPFRun newRun = newParagraph.createRun();
+            copyRun(newRun, templateRun);
+        }
+    }
+
+    /**
+     * 复制模板表格Run
+     *
+     * @param newRun
+     * @param templateRun
+     */
+    public void copyRun(XWPFRun newRun, XWPFRun templateRun) {
+        //设置Run样式
+        newRun.getCTR().setRPr(templateRun.getCTR().getRPr());
+        //设置内容
+        newRun.setText(templateRun.text());
     }
 
     /**
@@ -175,7 +313,7 @@ public class Template {
                 }
 
                 /*
-                * 开始标签
+                 * 开始标签
                  */
                 if (beginRunText.length() == 2) {
                     XWPFRun insertNewRun = createParagraph.insertNewRun(beginRunIndex);
@@ -194,7 +332,7 @@ public class Template {
                 }
 
                 /*
-                * 结束标签
+                 * 结束标签
                  */
                 if (beginRunText.length() == 1) {
                     // run标签内文本只有}
@@ -216,7 +354,7 @@ public class Template {
                 }
 
                 /*
-                * 处理中间的run标签
+                 * 处理中间的run标签
                  */
                 for (int i = 0; i < removeRunList.size(); i++) {
                     //原始Run
