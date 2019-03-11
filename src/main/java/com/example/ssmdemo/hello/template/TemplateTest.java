@@ -2,10 +2,7 @@ package com.example.ssmdemo.hello.template;
 
 import com.example.ssmdemo.util.SendEmailService;
 import fr.opensagres.poi.xwpf.converter.xhtml.XHTMLConverter;
-import fr.opensagres.poi.xwpf.converter.xhtml.XHTMLOptions;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
-import org.apache.poi.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.*;
 import java.util.HashMap;
