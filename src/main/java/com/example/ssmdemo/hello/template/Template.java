@@ -113,7 +113,7 @@ public class Template {
             }
 
             //移除模板表格标识行
-            //newCreateTable.removeRow(0);
+            newCreateTable.removeRow(0);
             //添加回车换行
             document.createParagraph();
 
