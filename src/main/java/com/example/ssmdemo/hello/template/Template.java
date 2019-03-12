@@ -57,6 +57,9 @@ public class Template {
                     String tableText = table.getText();
                     if (tableText.indexOf("##{foreach") > -1) {
                         //查找到##{foreach标签，该表格需要循环处理
+                        if (tableCellList.size() != 2) {
+                            System.out.println("模板错误");
+                        }
 
                     } else if (tableText.indexOf("{") > -1) {
                         //未找到##{foreach标签，查找到普通替换数据{}标签，该表格仅需要简单替换
@@ -107,9 +110,9 @@ public class Template {
             //创建新表格，默认一行一列
             XWPFTable newCreateTable = document.createTable();
 
-            for (int i = 0; i < tableRowList.size(); i++) {
+            for (int j = 0; j < tableRowList.size(); j++) {
                 XWPFTableRow newCreateRow = newCreateTable.createRow();
-                copyTableRow(newCreateRow, tableRowList.get(i));
+                copyTableRow(newCreateRow, tableRowList.get(j));
             }
 
             //移除模板表格标识行
@@ -173,7 +176,7 @@ public class Template {
         int templateRowCellSize = templateRow.getTableCells().size();
 
         //为新加行添加与模板行相同的列数
-        for (int i = 0; i < templateRowCellSize - 1; i++) {
+        for (int k = 0; k < templateRowCellSize - 1; k++) {
             newRow.addNewTableCell();
         }
 
@@ -181,8 +184,8 @@ public class Template {
         newRow.getCtRow().setTrPr(templateRow.getCtRow().getTrPr());
 
         //复制单元格
-        for (int j = 0; j < newRow.getTableCells().size(); j++) {
-            copyTableCell(newRow.getCell(j), templateRow.getCell(j));
+        for (int q = 0; q < newRow.getTableCells().size(); q++) {
+            copyTableCell(newRow.getCell(q), templateRow.getCell(q));
         }
     }
 
@@ -197,8 +200,8 @@ public class Template {
         newCell.getCTTc().setTcPr(templateCell.getCTTc().getTcPr());
 
         //删除新加列的原始段落
-        for (int k = 0; k < newCell.getParagraphs().size(); k++) {
-            newCell.removeParagraph(k);
+        for (int p = 0; p < newCell.getParagraphs().size(); p++) {
+            newCell.removeParagraph(p);
         }
 
         //在新加列中添加新段落
@@ -219,8 +222,8 @@ public class Template {
         newParagraph.getCTP().setPPr(templateParagraph.getCTP().getPPr());
 
         //删除新加段落的原始Run
-        for (int q = 0; q < newParagraph.getRuns().size(); q++) {
-            newParagraph.removeRun(q);
+        for (int s = 0; s < newParagraph.getRuns().size(); s++) {
+            newParagraph.removeRun(s);
         }
 
         //在新加段落中添加新Run
