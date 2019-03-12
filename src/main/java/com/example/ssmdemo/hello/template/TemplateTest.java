@@ -57,7 +57,7 @@ public class TemplateTest {
 
         //7.发送邮件
         SendEmailService sendEmailService = new SendEmailService();
-        sendEmailService.sendEmail("html", "", "word2html", content);
+        sendEmailService.sendEmail("html", "cph_2001@163.com", "认购Subject", content);
 
     }
 }
