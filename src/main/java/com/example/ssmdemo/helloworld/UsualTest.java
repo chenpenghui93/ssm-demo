@@ -1,4 +1,4 @@
-package com.example.ssmdemo.hello;
+package com.example.ssmdemo.helloworld;
 
 /**
  * @author cph

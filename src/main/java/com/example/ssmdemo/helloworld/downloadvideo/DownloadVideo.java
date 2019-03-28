@@ -1,4 +1,4 @@
-package com.example.ssmdemo.hello.downloadvideo;
+package com.example.ssmdemo.helloworld.downloadvideo;
 
 import java.io.IOException;
 import java.io.InputStream;

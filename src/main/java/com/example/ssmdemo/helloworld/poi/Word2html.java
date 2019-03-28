@@ -1,4 +1,4 @@
-package com.example.ssmdemo.hello.poi;
+package com.example.ssmdemo.helloworld.poi;
 
 import fr.opensagres.poi.xwpf.converter.core.BasicURIResolver;
 import fr.opensagres.poi.xwpf.converter.core.FileImageExtractor;

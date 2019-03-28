@@ -1,4 +1,4 @@
-package com.example.ssmdemo.hello.template;
+package com.example.ssmdemo.helloworld.template;
 
 import org.apache.poi.xwpf.usermodel.*;
 

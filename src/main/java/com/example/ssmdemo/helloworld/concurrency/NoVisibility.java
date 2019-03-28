@@ -1,4 +1,4 @@
-package com.example.ssmdemo.hello.concurrency;
+package com.example.ssmdemo.helloworld.concurrency;
 
 /**
  * 反例，不要这么做！

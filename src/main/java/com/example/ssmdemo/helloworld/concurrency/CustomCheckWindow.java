@@ -1,4 +1,4 @@
-package com.example.ssmdemo.hello.concurrency;
+package com.example.ssmdemo.helloworld.concurrency;
 
 import java.util.concurrent.Semaphore;
 

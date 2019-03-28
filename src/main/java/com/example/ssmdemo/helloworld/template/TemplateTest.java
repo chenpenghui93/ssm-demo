@@ -1,7 +1,8 @@
-package com.example.ssmdemo.hello.template;
+package com.example.ssmdemo.helloworld.template;
 
 import com.example.ssmdemo.util.SendEmailService;
 import fr.opensagres.poi.xwpf.converter.xhtml.XHTMLConverter;
+import fr.opensagres.poi.xwpf.converter.xhtml.XHTMLOptions;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 import java.io.*;
@@ -40,7 +41,8 @@ public class TemplateTest {
 
         File htmlFile = new File("D:\\devRepo\\zTemplate\\电子控股老股东2018年期权认购通知（老股东-集团主管-标准修订）实例.html");
         OutputStream out = new FileOutputStream(htmlFile);
-        XHTMLConverter.getInstance().convert(document, out, null);
+        XHTMLOptions options = XHTMLOptions.create();
+        XHTMLConverter.getInstance().convert(document, out, options);
 
         //6.读取html
         String content = "";

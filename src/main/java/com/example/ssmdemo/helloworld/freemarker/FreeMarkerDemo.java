@@ -1,4 +1,4 @@
-package com.example.ssmdemo.hello.freemarker;
+package com.example.ssmdemo.helloworld.freemarker;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

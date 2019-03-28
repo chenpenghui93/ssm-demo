@@ -1,4 +1,4 @@
-package com.example.ssmdemo.hello.jwt;
+package com.example.ssmdemo.helloworld.jwt;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class JwtDemo {
 
-    private static String MY_SECRET = "hello";
+    private static String MY_SECRET = "helloworld";
 
     /**
      * 创建Token
