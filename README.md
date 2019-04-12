@@ -1,4 +1,4 @@
-# ssm-demo
+# java-demo
 SSM框架整合，java相关方法、工具等的测试
 
 # 工具、技术
