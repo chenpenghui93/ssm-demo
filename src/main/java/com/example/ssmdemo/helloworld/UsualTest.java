@@ -7,9 +7,10 @@ package com.example.ssmdemo.helloworld;
  */
 public class UsualTest {
     public static void main(String[] args) {
-        //mathMethodTest();
-        //startWithMethod();
-        splitMethod();
+//        mathMethodTest();
+//        startWithMethod();
+//        splitMethod();
+        subStringTest();
     }
 
     public static void mathMethodTest() {
@@ -43,5 +44,13 @@ public class UsualTest {
         for (String st2 : s2.split("\\|", 3)) {
             System.out.println(st2);
         }
+    }
+
+    static void subStringTest(){
+
+        String date = "2018/04/11";
+        System.out.println(date.substring(1) + ": 起始位置(包含起始)");
+        System.out.println(date.substring(0, 4) + ": 截取开始、结束（不包含结束）");
+
     }
 }
