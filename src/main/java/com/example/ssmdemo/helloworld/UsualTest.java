@@ -1,5 +1,8 @@
 package com.example.ssmdemo.helloworld;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 /**
  * @author cph
  * @version 1.0
@@ -10,7 +13,20 @@ public class UsualTest {
 //        mathMethodTest();
 //        startWithMethod();
 //        splitMethod();
-        subStringTest();
+//        subStringTest();
+        doubleTest();
+    }
+
+    public static void doubleTest(){
+        double d1 = 4.87;
+        double d2 = 1.7845;
+        double d3 = d1 + d2;
+
+        DecimalFormat df = new DecimalFormat("0.0000");
+        df.setRoundingMode(RoundingMode.HALF_UP);
+        System.out.println(d1);
+        System.out.println(d2);
+        System.out.println(df.format(d3));
     }
 
     public static void mathMethodTest() {
