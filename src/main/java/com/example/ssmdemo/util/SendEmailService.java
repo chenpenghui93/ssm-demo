@@ -22,12 +22,24 @@ import java.util.Properties;
 @ComponentScan
 public class SendEmailService {
 
-    public void sendEmail(String type, String to, String subject, String content) {
+    public static void main(String[] args) {
+
+        String type = "simple";
+        String to = "chenpenghui@hisense.com";
+        String subject = "2100年分红报告";
+        String content = "http://hisense-hstock-web-hisense-stock-test.devapp.hisense.com/TopDown/Home";
+
+        sendEmail(type, to, subject, content);
+    }
+
+    public static void sendEmail(String type, String to, String subject, String content) {
         //发件箱
-        String from = "mcmadmin@163.com";
+//        String from = "mcmadmin@163.com";
+        String from = "stocksys@hisense.com";
         Properties properties = new Properties();
         //发件主机
-        properties.put("mail.host", "smtp.163.com");
+//        properties.put("mail.host", "smtp.163.com");
+        properties.put("mail.host", "mail.hisense.com");
         //发件协议
         properties.put("mail.transport.protocol", "smtp");
         //鉴权
@@ -36,9 +48,10 @@ public class SendEmailService {
         try {
             //1.获取session对象
             Session session = Session.getInstance(properties);
+            session.setDebug(true);
             //2.获取transport对象
             Transport transport = session.getTransport();
-            transport.connect(from, "Mcmadmin123");
+            transport.connect(from, "a*403190");
             //3.创建MimeMessage对象并设置收件人、发送方式、发件人、主题、内容等
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
@@ -70,6 +83,9 @@ public class SendEmailService {
             }
             //4.发送邮件
             transport.sendMessage(message, message.getAllRecipients());
+
+            System.out.println();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
