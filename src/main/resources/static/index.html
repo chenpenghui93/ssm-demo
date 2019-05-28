@@ -2,16 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ssm-demo</title>
-    <script type="application/javascript" src="js/jquery-3.3.1.js"></script>
-    <script type="application/javascript" src="js/main.js"></script>
+    <title>websocket-demo</title>
 </head>
 <body>
-    <div style="text-align: center" width="600">
-        <input id="user_id" placeholder="id" />
-        <input id="user_name" placeholder="name"/>
-        <input id="user_sex" placeholder="sex"/>
-        <button type="button" onclick="search()">查询</button>
+    <div>
+        <input type="submit" value="start" onclick="start()">
     </div>
+    <div id="message"></div>
+
+    <script type="text/javascript">
+
+        var webSocket = new WebSocket("ws://localhost:8080/websocket");
+
+        webSocket.onerror = function (event) { onError(event) };
+
+        webSocket.onopen = function (event) { onOpen(event) };
+
+        webSocket.onmessage = function (event) { onMessage(event) };
+
+        function onError(event) {
+            alert(event.data);
+        }
+
+        function onOpen(event) {
+            document.getElementById("message").innerHTML = "connection established";
+        }
+
+        function onMessage(event) {
+            document.getElementById("message").innerHTML += '<br />' + event.data;
+        }
+        
+        function start() {
+            webSocket.send("hello");
+            return false;
+        }
+
+    </script>
+
 </body>
 </html>

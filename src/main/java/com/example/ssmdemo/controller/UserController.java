@@ -33,7 +33,7 @@ public class UserController {
      */
     @RequestMapping(value = "/hello")
     public String hello() {
-        return "helloworld!";
+        return "hello, world!";
     }
 
     /**
