@@ -1,5 +1,6 @@
 package com.example.ssmdemo.helloworld.websocket;
 
+
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
@@ -8,6 +9,13 @@ import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 
 /**
+ * 问题：
+ * WebSocket connection to 'ws://localhost:8080/websocket' failed: Error during WebSocket handshake: Unexpected response code: 404
+ * 解决：
+ * jdk7+ === 无效
+ * URL路径 ws://localhost:8080/项目名称/websocket === 无效
+ * https://stackoverflow.com/questions/30500998/websocket-handshake-unexpected-response-code-404 === 无效
+ *
  * @author cph
  * @date 2019/5/28
  */
