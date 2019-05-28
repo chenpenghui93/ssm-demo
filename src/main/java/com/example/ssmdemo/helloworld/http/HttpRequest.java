@@ -23,7 +23,12 @@ public class HttpRequest {
     }
 
     /**
-     * 接口文档中应给出 1.接口类型(webservice、restful、？) 2.调用URL 3.请求方式("POST"、"GET") 4.请求参数及示例 5.返回内容及示例
+     * 接口文档中应给出
+     * 1.接口类型(webservice、restful、？)
+     * 2.调用URL
+     * 3.请求方式("POST"、"GET")
+     * 4.请求参数及示例
+     * 5.返回内容及示例
      *
      * @param requestUrl
      * @param requestMethod
