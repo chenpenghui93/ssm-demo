@@ -1,7 +1,5 @@
 package com.example.ssmdemo.helloworld.websocket;
 
-import org.springframework.web.bind.annotation.RestController;
-
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
@@ -19,7 +17,7 @@ public class WebSocketTest {
     @OnMessage
     public void onMessage(String message, Session session) throws IOException, InterruptedException {
         System.out.println("received: " + message);
-        session.getBasicRemote().sendText("first message from sever.");
+        session.getBasicRemote().sendText("the first message from sever.");
 
         int i = 0;
         while (i < 10) {
@@ -28,7 +26,7 @@ public class WebSocketTest {
             i++;
         }
 
-        session.getBasicRemote().sendText("last message from sever.");
+        session.getBasicRemote().sendText("the last message from sever.");
 
     }
 

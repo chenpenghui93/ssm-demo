@@ -12,7 +12,7 @@
 
     <script type="text/javascript">
 
-        var webSocket = new WebSocket("ws://localhost:8080/websocket");
+        var webSocket = new WebSocket('ws://localhost:8080/websocket');
 
         webSocket.onerror = function (event) { onError(event) };
 
@@ -22,18 +22,22 @@
 
         function onError(event) {
             alert(event.data);
+            console.log("onError...");
         }
 
         function onOpen(event) {
             document.getElementById("message").innerHTML = "connection established";
+            console.log("onOpen...");
         }
 
         function onMessage(event) {
             document.getElementById("message").innerHTML += '<br />' + event.data;
+            console.log("onMessage...");
         }
         
         function start() {
             webSocket.send("hello");
+            console.log("start...");
             return false;
         }
 
