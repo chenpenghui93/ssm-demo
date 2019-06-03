@@ -5,10 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.ssmdemo.dao.UserDao;
 import com.example.ssmdemo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,7 +38,7 @@ public class UserController {
      *
      * @return
      */
-    @RequestMapping(value = "getUser")
+    @RequestMapping(value = "getUserByName")
     public User getUser() {
         User user = userDao.selectUserByName("张三");
         return user;
@@ -52,7 +49,7 @@ public class UserController {
      *
      * @return
      */
-    @RequestMapping(value = "getAll")
+    @RequestMapping(value = "getAllUser")
     public List getAll() {
         List<Map> userList = userDao.getAll();
         return userList;
@@ -81,7 +78,7 @@ public class UserController {
 
     @RequestMapping(value = "getUserById")
     @ResponseBody
-    public HttpServletResponse getUserById(HttpServletRequest request, HttpServletResponse response, @RequestBody JSONObject obj) {
+    public HttpServletResponse getUserById(HttpServletRequest request, HttpServletResponse response, @RequestParam Map obj) {
         Map params = new HashMap();
         params.put("id", obj.get("id"));
         Map map = userDao.getUserById(params);
