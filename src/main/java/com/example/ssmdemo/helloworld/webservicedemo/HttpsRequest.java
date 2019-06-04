@@ -1,4 +1,4 @@
-package com.example.ssmdemo.helloworld.webserviceDemo;
+package com.example.ssmdemo.helloworld.webservicedemo;
 
 import javax.net.ssl.*;
 import java.io.BufferedReader;

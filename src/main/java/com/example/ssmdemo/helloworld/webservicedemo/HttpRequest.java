@@ -1,4 +1,4 @@
-package com.example.ssmdemo.helloworld.webserviceDemo;
+package com.example.ssmdemo.helloworld.webservicedemo;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

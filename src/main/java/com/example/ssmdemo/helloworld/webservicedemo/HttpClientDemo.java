@@ -1,4 +1,4 @@
-package com.example.ssmdemo.helloworld.webserviceDemo;
+package com.example.ssmdemo.helloworld.webservicedemo;
 
 /**
  * 1.创建HttpClient实例
