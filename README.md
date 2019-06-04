@@ -27,4 +27,3 @@ SSM框架整合，java相关方法、工具等的测试
 - key名称：webservice	
 - Username：HE1906041352481537	
 - key：71b40e20f66b457fb10c251b8b380b4a	
-- 类型：Web API
