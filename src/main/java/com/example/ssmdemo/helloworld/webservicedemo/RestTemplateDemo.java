@@ -9,7 +9,7 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * RestTemplate Post Demo
+ * RestTemplate方式调用和风天气demo
  *
  * @author cph
  * @date 2019/6/4
@@ -19,7 +19,19 @@ public class RestTemplateDemo {
     private static final Logger logger = LoggerFactory.getLogger(RestTemplateDemo.class);
 
     public static void main(String[] args) {
-        System.out.println(restPost("http://www.qq.com", "", 3000, 3000));
+
+//        String param = "key=71b40e20f66b457fb10c251b8b380b4a&location=北京";
+//        String url = "https://api.heweather.net/s6/weather";
+//        int connectionTimeout = 10000;
+//        int socketTimeout = 5000;
+
+        String param = "";
+        String url = "https://www.qq.com";
+        int connectionTimeout = 10000;
+        int socketTimeout = 5000;
+
+        System.out.println(restPost(url, param, connectionTimeout, socketTimeout));
+
     }
 
 
