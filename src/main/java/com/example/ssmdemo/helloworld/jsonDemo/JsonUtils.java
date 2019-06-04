@@ -1,9 +1,6 @@
-package com.example.ssmdemo.helloworld.json;
+package com.example.ssmdemo.helloworld.jsonDemo;
 
 import com.alibaba.fastjson.JSON;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 对象与JSON互转，使用工具类便于后续切换JSON生成工具
