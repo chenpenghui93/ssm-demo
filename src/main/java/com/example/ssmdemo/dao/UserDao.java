@@ -20,7 +20,7 @@ public interface UserDao {
 
     void updateUser(Map map);
 
-    void deleteUser(Long id);
+    void deleteUser(Map map);
 
     User getUser(long id);
 

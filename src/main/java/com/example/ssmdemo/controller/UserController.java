@@ -27,9 +27,6 @@ public class UserController {
     @Autowired
     UserDao userDao;
 
-    /**
-     *
-     */
     @RequestMapping(value = "/hello")
     public String hello() {
         return "hello!";
@@ -49,12 +46,14 @@ public class UserController {
         map.put("id", id);
         map.put("userName", userName);
         map.put("userSex", userSex);
-        userDao.addUser(map);
+        userDao.updateUser(map);
     }
 
     @RequestMapping(value = "deleteUser")
     public void deleteUser(Long id) {
-        userDao.deleteUser(id);
+        Map map = new HashMap();
+        map.put("id", id);
+        userDao.deleteUser(map);
     }
 
     @RequestMapping(value = "/getUser")

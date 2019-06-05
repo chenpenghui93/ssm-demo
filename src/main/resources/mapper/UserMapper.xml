@@ -3,11 +3,11 @@
 <mapper namespace="com.example.ssmdemo.dao.UserDao" >
 
     <select id="addUser" parameterType="Map">
-        insert into tb_user where user_name=#{userName} and user_sex=#{userSex}
+        insert into tb_user (user_name, user_sex) values (#{userName},#{userSex})
     </select>
 
     <select id="deleteUser" parameterType="Map">
-        delete from tb_user t where t.id=#{id};
+        delete from tb_user where id=#{id};
     </select>
 
     <select id="updateUser" parameterType="Map">
