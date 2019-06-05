@@ -36,13 +36,20 @@ public class UserController {
     }
 
     @RequestMapping(value = "/addUser")
-    public void addUser(@RequestParam String name, @RequestParam String sex){
-        userDao.addUser(name, sex);
+    public void addUser(@RequestParam String userName, @RequestParam String userSex){
+        Map map = new HashMap();
+        map.put("userName", userName);
+        map.put("userSex", userSex);
+        userDao.addUser(map);
     }
 
     @RequestMapping(value = "/updateUser")
-    public void updateUser(@RequestParam String name, @RequestParam String sex){
-        userDao.addUser(name, sex);
+    public void updateUser(@RequestParam Long id, @RequestParam String userName, @RequestParam String userSex){
+        Map map = new HashMap();
+        map.put("id", id);
+        map.put("userName", userName);
+        map.put("userSex", userSex);
+        userDao.addUser(map);
     }
 
     @RequestMapping(value = "deleteUser")
@@ -59,8 +66,5 @@ public class UserController {
     public List<User> getAllUsers(){
         return userDao.getAllUsers();
     }
-
-
-
 
 }

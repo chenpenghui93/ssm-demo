@@ -16,9 +16,9 @@ import java.util.Map;
 @Repository
 public interface UserDao {
 
-    void addUser(String name, String sex);
+    void addUser(Map map);
 
-    void updateUser(String name, String sex);
+    void updateUser(Map map);
 
     void deleteUser(Long id);
 
