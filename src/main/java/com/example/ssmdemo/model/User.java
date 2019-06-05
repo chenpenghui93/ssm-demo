@@ -8,8 +8,8 @@ package com.example.ssmdemo.model;
 public class User {
 
     private int id;
-    private String name;
-    private String sex;
+    private String userName;
+    private String userSex;
 
     public int getId() {
         return id;
@@ -19,28 +19,34 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getSex() {
-        return sex;
+    public String getUserSex() {
+        return userSex;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setUserSex(String userSex) {
+        this.userSex = userSex;
+    }
+
+    public User(int id, String userName, String userSex) {
+        this.id = id;
+        this.userName = userName;
+        this.userSex = userSex;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", sex='" + sex + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userSex='" + userSex + '\'' +
                 '}';
     }
 }

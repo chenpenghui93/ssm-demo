@@ -14,7 +14,7 @@
         update tb_user t set t.user_name=#{userName}, t.user_sex=#{userSex} where t.id=#{id};
     </select>
 
-    <select id="getUser"  resultType="User">
+    <select id="getUser" parameterType="Long" resultType="User">
         SELECT * FROM tb_user t WHERE t.id=#{id}
     </select>
 
