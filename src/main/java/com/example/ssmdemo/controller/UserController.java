@@ -51,9 +51,7 @@ public class UserController {
 
     @RequestMapping(value = "deleteUser")
     public void deleteUser(Long id) {
-        Map map = new HashMap();
-        map.put("id", id);
-        userDao.deleteUser(map);
+        userDao.deleteUser(id);
     }
 
     @RequestMapping(value = "/getUser")
