@@ -9,7 +9,7 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * RestTemplate方式调用和风天气demo
+ * RestTemplate方式调用
  *
  * @author cph
  * @date 2019/6/4
