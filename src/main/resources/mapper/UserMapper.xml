@@ -2,23 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.ssmdemo.dao.UserDao" >
 
-    <!-- 根据姓名查询用户 -->
-    <select id="selectUserByName"  resultType="User">
-        SELECT * FROM tb_user t WHERE t.name = #{name}
+    <select id="addUser">
+        insert into tb_user t where t.name=#{name} and t.sex=#{sex}
     </select>
 
-    <!-- 查询所有用户 -->
-    <select id="getAll" resultType="Map">
+    <select id="deleteUser">
+        delete from tb_user t where t.id=#{id}
+    </select>
+
+    <select id="updateUser">
+        update tb_user t where t.name=#{name} and t.sex=#{sex}
+    </select>
+
+    <select id="getUser"  resultType="User">
+        SELECT * FROM tb_user t WHERE t.id=#{id}
+    </select>
+
+    <select id="getAllUsers" resultType="List">
         SELECT * FROM tb_user t
-    </select>
-
-    <!-- 查询json形式 -->
-    <select id="getJSONString" resultType="Map">
-        SELECT * FROM tb_test t
-    </select>
-
-    <select id="getUserById" parameterType="Map" resultType="Map">
-        SELECT * FROM tb_user t WHERE t.id = #{id};
     </select>
 
 </mapper>

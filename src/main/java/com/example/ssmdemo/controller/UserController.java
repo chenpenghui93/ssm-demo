@@ -32,83 +32,35 @@ public class UserController {
      */
     @RequestMapping(value = "/hello")
     public String hello() {
-        return "hello, world!";
+        return "hello!";
     }
 
-    /**
-     * 根据姓名查询用户
-     *
-     * @return
-     */
-    @RequestMapping(value = "getUserByName")
-    public User getUser() {
-        User user = userDao.selectUserByName("张三");
-        return user;
+    @RequestMapping(value = "/addUser")
+    public void addUser(@RequestParam String name, @RequestParam String sex){
+        userDao.addUser(name, sex);
     }
 
-    /**
-     * 查询所有用户
-     *
-     * @return
-     */
-    @RequestMapping(value = "getAllUser")
-    public List getAll() {
-        List<Map> userList = userDao.getAll();
-        return userList;
+    @RequestMapping(value = "/updateUser")
+    public void updateUser(@RequestParam String name, @RequestParam String sex){
+        userDao.addUser(name, sex);
     }
 
-    /**
-     * 查询json形式
-     *
-     * @return
-     */
-    @RequestMapping(value = "getJSONString")
-    public List<Map> getJSONString() {
-
-        Map map = userDao.getJSONString();
-        String string = map.get("text").toString();
-        System.out.println(string);
-
-        List<Map> objectList = JSON.parseObject(string, List.class);
-        System.out.println(objectList);
-
-        List<Map> arrayList = JSON.parseArray(string, Map.class);
-        System.out.println(arrayList);
-
-        return objectList;
+    @RequestMapping(value = "deleteUser")
+    public void deleteUser(Long id) {
+        userDao.deleteUser(id);
     }
 
-    @RequestMapping(value = "getUserById")
-    @ResponseBody
-    public HttpServletResponse getUserById(HttpServletRequest request, HttpServletResponse response, @RequestParam Map obj) {
-        Map params = new HashMap();
-        params.put("id", obj.get("id"));
-        Map map = userDao.getUserById(params);
-        String data = JSON.toJSONString(map);
-
-//        OutputStream outputStream = null;
-//        try {
-//            response.setHeader("Content-type", "application/json;charset=utf-8");
-//            outputStream = response.getOutputStream();
-//            outputStream.write(data.getBytes("utf-8"));
-//        } catch (Exception e){
-//            e.printStackTrace();
-//        }
-
-        PrintWriter printWriter = null;
-        try {
-            response.setHeader("Content-type", "application/json;charset=utf-8");
-            printWriter = response.getWriter();
-            printWriter.print(data);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (null != printWriter) {
-                printWriter.close();
-            }
-        }
-
-        return response;
-
+    @RequestMapping(value = "/getUser")
+    public User getUser(Long id) {
+        return userDao.getUser(id);
     }
+
+    @RequestMapping(value = "getAllUsers")
+    public List<User> getAllUsers(){
+        return userDao.getAllUsers();
+    }
+
+
+
+
 }

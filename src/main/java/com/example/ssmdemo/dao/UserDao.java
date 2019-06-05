@@ -16,35 +16,14 @@ import java.util.Map;
 @Repository
 public interface UserDao {
 
-    /**
-     * 根据姓名查询用户
-     *
-     * @param name
-     * @return
-     */
-    User selectUserByName(String name);
+    void addUser(String name, String sex);
 
-    /**
-     * 查询所有用户
-     *
-     * @param
-     * @return
-     */
-    List<Map> getAll();
+    void updateUser(String name, String sex);
 
-    /**
-     * 查询json形式
-     *
-     * @return
-     */
-    Map getJSONString();
+    void deleteUser(Long id);
 
-    /**
-     * 根据ID查询用户
-     *
-     * @param map
-     * @return
-     */
-    Map getUserById(Map map);
+    User getUser(long id);
+
+    List<User> getAllUsers();
 
 }

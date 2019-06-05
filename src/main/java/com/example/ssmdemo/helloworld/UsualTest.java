@@ -15,6 +15,7 @@ public class UsualTest {
 //        splitMethod();
 //        subStringTest();
         doubleTest();
+        Status status = Status.A;
     }
 
     public static void doubleTest(){
@@ -68,5 +69,11 @@ public class UsualTest {
         System.out.println(date.substring(1) + ": 起始位置(包含起始)");
         System.out.println(date.substring(0, 4) + ": 截取开始、结束（不包含结束）");
 
+    }
+
+    public enum  Status{
+        A,
+        B,
+        C,
     }
 }
