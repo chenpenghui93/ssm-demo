@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.example.ssmdemo.dao.UserDao;
 import com.example.ssmdemo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +29,7 @@ public class UserController {
         return "hello!";
     }
 
-    @RequestMapping(value = "/addUser")
+    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public void addUser(@RequestParam String userName, @RequestParam String userSex){
         Map map = new HashMap();
         map.put("userName", userName);
@@ -40,7 +37,7 @@ public class UserController {
         userDao.addUser(map);
     }
 
-    @RequestMapping(value = "/updateUser")
+    @RequestMapping(value = "/updateUser", method = RequestMethod.PUT)
     public void updateUser(@RequestParam Long id, @RequestParam String userName, @RequestParam String userSex){
         Map map = new HashMap();
         map.put("id", id);
@@ -49,17 +46,17 @@ public class UserController {
         userDao.updateUser(map);
     }
 
-    @RequestMapping(value = "deleteUser")
+    @RequestMapping(value = "/deleteUser", method = RequestMethod.DELETE)
     public void deleteUser(Long id) {
         userDao.deleteUser(id);
     }
 
-    @RequestMapping(value = "/getUser")
+    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
     public User getUser(Long id) {
         return userDao.getUser(id);
     }
 
-    @RequestMapping(value = "getAllUsers")
+    @RequestMapping(value = "/getAllUsers", method = RequestMethod.GET)
     public List<User> getAllUsers(){
         return userDao.getAllUsers();
     }
