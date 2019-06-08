@@ -1,4 +1,4 @@
-package com.example.ssmdemo.util;
+package com.example.ssmdemo.helloworld;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,7 +20,7 @@ import java.util.Properties;
  **/
 @Service
 @ComponentScan
-public class SendEmailService {
+public class SimpleEmailService {
 
     public static void main(String[] args) {
 

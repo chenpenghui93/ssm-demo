@@ -1,6 +1,6 @@
 package com.example.ssmdemo.helloworld.template;
 
-import com.example.ssmdemo.util.SendEmailService;
+import com.example.ssmdemo.helloworld.SimpleEmailService;
 import fr.opensagres.poi.xwpf.converter.xhtml.XHTMLConverter;
 import fr.opensagres.poi.xwpf.converter.xhtml.XHTMLOptions;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
@@ -59,7 +59,7 @@ public class TemplateTest {
         }
 
         //7.发送邮件
-        SendEmailService sendEmailService = new SendEmailService();
+        SimpleEmailService sendEmailService = new SimpleEmailService();
         sendEmailService.sendEmail("html", "cph_2001@163.com", "认购Subject", content);
 
     }

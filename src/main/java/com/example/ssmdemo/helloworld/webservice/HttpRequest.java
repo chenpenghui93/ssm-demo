@@ -1,48 +1,52 @@
-package com.example.ssmdemo.helloworld.webservicedemo;
+package com.example.ssmdemo.helloworld.webservice;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
+ * java发送http请求
+ * https://blog.csdn.net/guozili1/article/details/53995121
+ *
  * @author cph
- * @date 2019/6/4
+ * @version 1.0
+ * @date 2018/12/25
  */
-public class HttpURLConnectionDemo {
+public class HttpRequest {
 
     public static void main(String[] args) {
-        System.out.println(restPost("http://www.qq.com", "GET", null));
+        String string = httpRequest("http://www.qq.com", "GET", null);
+        System.out.println(string);
     }
 
     /**
-     * HttpURLConnectionDemo
+     * 接口文档中应给出
+     * 1.接口类型(webservice、restful、？)
+     * 2.调用URL
+     * 3.请求方式("POST"、"GET")
+     * 4.请求参数及示例
+     * 5.返回内容及示例
      *
      * @param requestUrl
      * @param requestMethod
-     * @param result
+     * @param outputString
      * @return
      */
-    public static String restPost(String requestUrl, String requestMethod, String result){
-
+    public static String httpRequest(String requestUrl, String requestMethod, String outputString) {
         StringBuffer buffer = null;
         try {
             URL url = new URL(requestUrl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            //设置是否向HttpURLConnection输出，post请求参数放在http正文中，故设为true;默认为false
-            connection.setDoOutput(true);
-            //设置是否从HttpURLConnection读入，默认为true
             connection.setDoInput(true);
-            //post请求不能使用缓存
-            connection.setUseCaches(false);
-            //设定传送的内容类型是可序列化的java对象
-            connection.setRequestProperty("Content-type", "application/x-java-serialized-object");
-            //设置请求方法
+            connection.setDoOutput(true);
             connection.setRequestMethod(requestMethod);
             connection.connect();
-
-            if (result != null) {
+            if (null != outputString) {
                 OutputStream outputStream = connection.getOutputStream();
-                outputStream.write(result.getBytes("utf-8"));
+                outputStream.write(outputString.getBytes("utf-8"));
                 outputStream.close();
             }
 
@@ -51,11 +55,11 @@ public class HttpURLConnectionDemo {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             buffer = new StringBuffer();
             String line;
-            if ((line = bufferedReader.readLine()) != null) {
+            while ((line = bufferedReader.readLine()) != null) {
                 buffer.append(line);
             }
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
