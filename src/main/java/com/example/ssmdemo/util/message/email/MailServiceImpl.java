@@ -1,4 +1,4 @@
-package com.example.ssmdemo.util.email;
+package com.example.ssmdemo.util.message.email;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +34,7 @@ public class MailServiceImpl implements MailService {
         try {
             //true表示需要创建一个multipart message
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
-            // TODO: 2019/6/8 自定义发件昵称
+            // 自定义发件昵称
             String nick = javax.mail.internet.MimeUtility.encodeText("");
             helper.setFrom(new InternetAddress(nick + " <" + username + "> "));
             helper.setTo(to);

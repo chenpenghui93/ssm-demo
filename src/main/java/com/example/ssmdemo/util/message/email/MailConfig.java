@@ -1,4 +1,4 @@
-package com.example.ssmdemo.util.email;
+package com.example.ssmdemo.util.message.email;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -24,7 +24,7 @@ public class MailConfig {
     @Bean
     public JavaMailSender mailSender(){
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        // TODO: 2019/6/8 添加发件主机域名
+        // 添加发件主机域名
         mailSender.setHost("");
         mailSender.setProtocol("smtp");
         mailSender.setUsername(username);

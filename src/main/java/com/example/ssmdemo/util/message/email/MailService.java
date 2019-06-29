@@ -1,4 +1,4 @@
-package com.example.ssmdemo.util.email;
+package com.example.ssmdemo.util.message.email;
 
 /**
  * @author cph
