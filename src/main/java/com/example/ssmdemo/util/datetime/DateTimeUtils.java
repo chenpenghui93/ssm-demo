@@ -1,4 +1,4 @@
-package com.example.ssmdemo.util.date;
+package com.example.ssmdemo.util.datetime;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
  * @author cph
  * @date 2019/6/28
  */
-public class DateUtils {
+public class DateTimeUtils {
     public static void main(String[] args) {
 
         //default, ISO_LOCAL_DATE
@@ -41,11 +41,11 @@ public class DateUtils {
         String date4 = "2016-08-16T15:23:01Z";
         Instant instant = Instant.parse(date4);
         System.out.println("Instant: " + instant);
-        //date time
+        //datetime time
         LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.of(ZoneOffset.UTC.getId()));
         //localdate
         System.out.println("localDateTime: " + localDateTime.toLocalDate());
-        //date time + timezone
+        //datetime time + timezone
         ZonedDateTime zonedDateTime1 = instant.atZone(ZoneId.of("Asia/Shanghai"));
         System.out.println("zonedDateTime1: " + zonedDateTime1);
         ZonedDateTime zonedDateTime2 = instant.atZone(ZoneId.of("Europe/Athens"));
