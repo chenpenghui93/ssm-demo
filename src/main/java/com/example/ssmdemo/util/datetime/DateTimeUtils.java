@@ -75,6 +75,8 @@ public class DateTimeUtils {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        System.out.println("LocalDate.now(): "+ LocalDate.now());
     }
 
 }
