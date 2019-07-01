@@ -1,17 +1,20 @@
 package com.example.ssmdemo.util.datetime;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
- * Java 8 – How to convert String to LocalDate
- * https://www.mkyong.com/java8/java-8-how-to-convert-string-to-localdate/
- *
  * @author cph
  * @date 2019/6/28
  */
 public class DateTimeUtils {
     public static void main(String[] args) {
+
+        //Java 8 – How to convert String to LocalDate
+        //https://www.mkyong.com/java8/java-8-how-to-convert-string-to-localdate/
 
         //default, ISO_LOCAL_DATE
         String date1 = "2019-06-29";
@@ -58,5 +61,20 @@ public class DateTimeUtils {
         System.out.println("TimeZone: " + zonedDateTime.getZone());
         LocalDate localDate5 = zonedDateTime.toLocalDate();
         System.out.println("LocalDate5: " + localDate5);
+
+
+        //How to convert String to Date – Java
+        //https://www.mkyong.com/java/how-to-convert-string-to-date-java/
+
+        String dateString6 = "2016-6-29";
+        SimpleDateFormat formatter6 = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date date6 = formatter6.parse(dateString6);
+            System.out.println("date6: " + date6);
+            System.out.println("formatter6.format(): " + formatter6.format(date6));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
+
 }
