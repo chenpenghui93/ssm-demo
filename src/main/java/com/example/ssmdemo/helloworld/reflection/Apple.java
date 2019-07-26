@@ -1,6 +1,7 @@
 package com.example.ssmdemo.helloworld.reflection;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
@@ -41,5 +42,10 @@ public class Apple {
         setPriceMethod.invoke(appleObject, 20);
         Method getPriceMethod = clazz.getMethod("getPrice");
         System.out.println("反射调用：price=" + getPriceMethod.invoke(appleObject));
+
+        Field[] fields = clazz.getDeclaredFields();
+        for (Field field : fields) {
+            System.out.println(field.getName());
+        }
     }
 }
