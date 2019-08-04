@@ -22,6 +22,8 @@ public class Apple {
         this.price = price;
     }
 
+    public Apple(){}
+
     public static void main(String[] args) throws Exception {
 
         //正常调用
@@ -43,9 +45,38 @@ public class Apple {
         Method getPriceMethod = clazz.getMethod("getPrice");
         System.out.println("反射调用：price=" + getPriceMethod.invoke(appleObject));
 
+        //获取所有属性
         Field[] fields = clazz.getDeclaredFields();
+        System.out.println("========属性========");
         for (Field field : fields) {
-            System.out.println(field.getName());
+            System.out.println(field.getType() + " " + field.getName());
+        }
+
+        //获取所有方法
+        Method[] methods = clazz.getDeclaredMethods();
+        System.out.println("========方法========");
+        for (Method method : methods) {
+            //返回类型
+            Class returnType = method.getReturnType();
+            //参数类型
+            Class[] parameterTypes = method.getParameterTypes();
+            System.out.print(returnType.getName() + " " + method.getName() + "(");
+            for (Class parameter : parameterTypes) {
+                System.out.print(parameter.getName());
+            }
+            System.out.println(")");
+        }
+
+        //获取所有构造器
+        Constructor[] constructors = clazz.getDeclaredConstructors();
+        System.out.println("========构造器========");
+        for (Constructor constructor : constructors) {
+            Class[] parameterTypes = constructor.getParameterTypes();
+            System.out.print(constructor.getName() + "(");
+            for (Class parameter : parameterTypes) {
+                System.out.print(parameter.getName());
+            }
+            System.out.println(")");
         }
     }
 }
