@@ -2,6 +2,8 @@ package com.example.ssmdemo.helloworld;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author cph
@@ -14,8 +16,18 @@ public class UsualTest {
 //        startWithMethod();
 //        splitMethod();
 //        subStringTest();
-        doubleTest();
-        Status status = Status.A;
+//        doubleTest();
+//        Status status = Status.A;
+        testNull();
+    }
+
+    public static void testNull(){
+        Map m = new HashMap();
+        m.put("key", null);
+        for (Object key : m.keySet()) {
+            System.out.println(key + " " + m.get(key));
+        }
+
     }
 
     public static void doubleTest(){
