@@ -1,9 +1,0 @@
-package com.example.demo.helloworld.reflection.office;
-
-/**
- * @author cph
- * @date 2019/7/25
- */
-public interface OfficeAble {
-    void start();
-}
