@@ -78,8 +78,12 @@ public class UsualTest {
     static void subStringTest(){
 
         String date = "2018/04/11";
-        System.out.println(date.substring(1) + ": 起始位置(包含起始)");
-        System.out.println(date.substring(0, 4) + ": 截取开始、结束（不包含结束）");
+
+        //起始位置(包含起始)
+        System.out.println(date.substring(1));
+
+        //截取开始、结束（不包含结束）
+        System.out.println(date.substring(0, 4));
 
     }
 
