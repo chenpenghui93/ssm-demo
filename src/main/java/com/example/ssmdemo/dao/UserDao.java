@@ -1,6 +1,6 @@
-package com.example.demo.dao;
+package com.example.ssmdemo.dao;
 
-import com.example.demo.model.User;
+import com.example.ssmdemo.model.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

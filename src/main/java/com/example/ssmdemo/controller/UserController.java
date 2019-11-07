@@ -1,7 +1,7 @@
-package com.example.demo.controller;
+package com.example.ssmdemo.controller;
 
-import com.example.demo.dao.UserDao;
-import com.example.demo.model.User;
+import com.example.ssmdemo.dao.UserDao;
+import com.example.ssmdemo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
