@@ -23,7 +23,10 @@ public class RegTest {
                 "      </ns:getCustByIDResponse>\n" +
                 "   </soapenv:Body>\n" +
                 "</soapenv:Envelope>";
-        splitXmlString(xml);
+        //splitXmlString(xml);
+
+        int i = xml.indexOf("<ns:return>");
+        int j = xml.indexOf("</ns:return>");
     }
 
     public static void splitXmlString(String data){

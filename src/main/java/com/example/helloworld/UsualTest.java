@@ -12,13 +12,12 @@ import java.util.Map;
  */
 public class UsualTest {
     public static void main(String[] args) {
-//        mathMethodTest();
-//        startWithMethod();
-//        splitMethod();
-//        subStringTest();
-//        doubleTest();
-//        Status status = Status.A;
-        testNull();
+        String str = "0123456";
+        //1
+        int i = str.indexOf("1");
+        //4
+        int j = str.lastIndexOf("45");
+        System.out.println();
     }
 
     public static void testNull(){
