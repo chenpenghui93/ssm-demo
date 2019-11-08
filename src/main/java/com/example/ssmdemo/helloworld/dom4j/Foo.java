@@ -41,7 +41,7 @@ public class Foo {
         return document;
     }
 
-    public static Document createDocument(){
+    public static Document createDocument() {
         Document document = DocumentHelper.createDocument();
         Element root = document.addElement("root");
 
@@ -75,7 +75,6 @@ public class Foo {
         writer = new XMLWriter(System.out, format);
         writer.write(document);
     }
-
 
 
 }
