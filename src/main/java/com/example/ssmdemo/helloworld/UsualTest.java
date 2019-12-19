@@ -19,9 +19,9 @@ public class UsualTest {
         System.out.println();
     }
 
-    public static void collectionTest(){
-        Integer[] a = new Integer[] {1,2,3,4,5};
-        Integer[] b = new Integer[] {3,4,5,6,7};
+    public static void collectionTest() {
+        Integer[] a = new Integer[]{1, 2, 3, 4, 5};
+        Integer[] b = new Integer[]{3, 4, 5, 6, 7};
 
         List _a = Arrays.asList(a);
         List _b = Arrays.asList(b);
@@ -47,7 +47,7 @@ public class UsualTest {
     }
 
 
-    public static void testNull(){
+    public static void testNull() {
         Map m = new HashMap();
         m.put("key", null);
         for (Object key : m.keySet()) {
@@ -56,7 +56,7 @@ public class UsualTest {
 
     }
 
-    public static void doubleTest(){
+    public static void doubleTest() {
         double d1 = 4.87;
         double d2 = 1.7845;
         double d3 = d1 + d2;
@@ -101,7 +101,7 @@ public class UsualTest {
         }
     }
 
-    static void subStringTest(){
+    static void subStringTest() {
 
         String date = "2018/04/11";
 
@@ -113,7 +113,7 @@ public class UsualTest {
 
     }
 
-    public enum  Status{
+    public enum Status {
         A,
         B,
         C,
