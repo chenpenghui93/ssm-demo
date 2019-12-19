@@ -2,8 +2,7 @@ package com.example.ssmdemo.helloworld;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author cph
@@ -19,6 +18,34 @@ public class UsualTest {
         int j = str.lastIndexOf("45");
         System.out.println();
     }
+
+    public static void collectionTest(){
+        Integer[] a = new Integer[] {1,2,3,4,5};
+        Integer[] b = new Integer[] {3,4,5,6,7};
+
+        List _a = Arrays.asList(a);
+        List _b = Arrays.asList(b);
+
+        Collection colA = new ArrayList(_a);
+        Collection colB = new ArrayList(_b);
+
+        //交集
+        colA.retainAll(colB);
+        System.out.println(colA);
+
+        //并集
+        Set result = new HashSet();
+        result.addAll(_a);
+        result.addAll(_b);
+        System.out.println(result);
+
+        //差集
+        Collection aa = new ArrayList(colA);
+        Collection bb = new ArrayList(result);
+        bb.removeAll(aa);
+        System.out.println(bb);
+    }
+
 
     public static void testNull(){
         Map m = new HashMap();
