@@ -1,3 +1,4 @@
+/*
 function search() {
     var user_id = $("#user_id").val();
     var params = {
@@ -21,3 +22,4 @@ function ajaxPost(params) {
         }
     });
 }
+*/
