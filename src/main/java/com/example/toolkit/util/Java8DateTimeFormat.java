@@ -11,7 +11,7 @@ import java.util.TimeZone;
  * @author cph
  * @date 2019/6/28
  */
-public class DateUtils {
+public class Java8DateTimeFormat {
     public static void main(String[] args) {
 //        string2LocalDate();
 //        localDateTest();
