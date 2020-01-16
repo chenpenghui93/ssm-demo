@@ -1,4 +1,4 @@
-package com.example.toolkit.util;
+package com.example.toolkit.util.datetime;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -10,7 +10,7 @@ import java.time.temporal.TemporalAdjusters;
  * @Author cph
  * @Date 2020/1/12
  */
-public class Java8DateTest {
+public class LocalDateTest {
     public static void main(String[] args) {
         localDateTest();
         localTimeTest();

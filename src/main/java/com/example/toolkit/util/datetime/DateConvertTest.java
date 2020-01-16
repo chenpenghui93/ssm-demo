@@ -1,4 +1,4 @@
-package com.example.toolkit.util;
+package com.example.toolkit.util.datetime;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,7 +11,7 @@ import java.util.TimeZone;
  * @author cph
  * @date 2019/6/28
  */
-public class Java8DateTimeFormat {
+public class DateConvertTest {
     public static void main(String[] args) {
 //        string2LocalDate();
 //        localDateTest();
