@@ -1,9 +1,7 @@
 package com.example.toolkit.util.collection;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.*;
+import java.util.stream.*;
 
 /**
  * https://www.geeksforgeeks.org/stream-in-java/
@@ -35,7 +33,7 @@ public class StreamTest {
         System.out.println(squareSet);
 
         //forEach
-        number.stream().map(x -> x * x).forEach(y -> System.out.print(y + "  "));
+        number.stream().map(x -> x * x).forEach(y -> System.out.println(y));
 
         //reduce
         int even = number.stream().filter(x -> x % 2 == 0).reduce(0, (ans, i) -> ans + i);
