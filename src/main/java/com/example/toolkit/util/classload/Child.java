@@ -16,17 +16,17 @@ public class Child extends Parent {
         System.out.println("子类静态初始化块");
     }
 
-    public Child(){
+    public Child() {
         System.out.println("子类构造方法");
     }
 
-    public static int childStaticMethod(){
+    public static int childStaticMethod() {
         System.out.println("子类静态方法");
         return 3;
     }
 
     @Override
-    protected void finalize() throws Throwable{
+    protected void finalize() throws Throwable {
         System.out.println("销毁子类之前");
         super.finalize();
         System.out.println("销毁子类之后");
