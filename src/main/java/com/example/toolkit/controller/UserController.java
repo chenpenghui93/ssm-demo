@@ -25,7 +25,7 @@ public class UserController {
 
     @RequestMapping(value = "/")
     public String index() {
-        return "Hello, World!";
+        return "Hello World!";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
