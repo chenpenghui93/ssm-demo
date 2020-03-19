@@ -3,7 +3,10 @@ package com.example.toolkit.controller;
 import com.example.toolkit.dao.UserDao;
 import com.example.toolkit.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,10 +24,9 @@ public class UserController {
     UserDao userDao;
 
     @RequestMapping(value = "/")
-    public String index(){
+    public String index() {
         return "/index.html";
     }
-
 
     @RequestMapping(value = "/hello")
     public String hello() {
@@ -32,7 +34,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public void addUser(@RequestParam String userName, @RequestParam String userSex){
+    public void addUser(@RequestParam String userName, @RequestParam String userSex) {
         Map map = new HashMap();
         map.put("userName", userName);
         map.put("userSex", userSex);
@@ -40,7 +42,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public void updateUser(@RequestParam Long id, @RequestParam String userName, @RequestParam String userSex){
+    public void updateUser(@RequestParam Long id, @RequestParam String userName, @RequestParam String userSex) {
         Map map = new HashMap();
         map.put("id", id);
         map.put("userName", userName);
@@ -59,7 +61,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
 
