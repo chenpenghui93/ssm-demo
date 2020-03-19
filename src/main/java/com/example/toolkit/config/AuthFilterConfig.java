@@ -1,6 +1,7 @@
 package com.example.toolkit.config;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -8,12 +9,11 @@ import org.springframework.context.annotation.Configuration;
  * @version 1.0.0
  * @date 2019/1/9
  */
-@Configuration
+//@Configuration
 public class AuthFilterConfig {
 
-//    @Bean
-    public FilterRegistrationBean filterRegistrationBean(){
-
+    @Bean
+    public FilterRegistrationBean filterRegistrationBean() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new AuthFilter());
         registration.addUrlPatterns("/*");
