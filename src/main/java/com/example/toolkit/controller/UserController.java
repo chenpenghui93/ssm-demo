@@ -25,12 +25,7 @@ public class UserController {
 
     @RequestMapping(value = "/")
     public String index() {
-        return "/index.html";
-    }
-
-    @RequestMapping(value = "/hello")
-    public String hello() {
-        return "hello!";
+        return "Hello, World!";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
