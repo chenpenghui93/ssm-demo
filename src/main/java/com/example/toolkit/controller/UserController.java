@@ -20,12 +20,18 @@ public class UserController {
     @Autowired
     UserDao userDao;
 
+    @RequestMapping(value = "/")
+    public String index(){
+        return "/index.html";
+    }
+
+
     @RequestMapping(value = "/hello")
     public String hello() {
         return "hello!";
     }
 
-    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public void addUser(@RequestParam String userName, @RequestParam String userSex){
         Map map = new HashMap();
         map.put("userName", userName);
@@ -33,7 +39,7 @@ public class UserController {
         userDao.addUser(map);
     }
 
-    @RequestMapping(value = "/updateUser", method = RequestMethod.PUT)
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public void updateUser(@RequestParam Long id, @RequestParam String userName, @RequestParam String userSex){
         Map map = new HashMap();
         map.put("id", id);
@@ -42,17 +48,17 @@ public class UserController {
         userDao.updateUser(map);
     }
 
-    @RequestMapping(value = "/deleteUser", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public void deleteUser(Long id) {
         userDao.deleteUser(id);
     }
 
-    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
+    @RequestMapping(value = "/getOne", method = RequestMethod.GET)
     public User getUser(Long id) {
         return userDao.getUser(id);
     }
 
-    @RequestMapping(value = "/getAllUsers", method = RequestMethod.GET)
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     public List<User> getAllUsers(){
         return userDao.getAllUsers();
     }

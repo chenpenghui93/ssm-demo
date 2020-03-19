@@ -3,7 +3,7 @@
 <mapper namespace="com.example.toolkit.dao.UserDao" >
 
     <select id="addUser" parameterType="Map">
-        insert into tb_user (user_name, user_sex) values (#{userName},#{userSex})
+        insert into tb_user (t_name, t_sex) values (#{userName},#{userSex})
     </select>
 
     <select id="deleteUser" parameterType="Long">
@@ -11,7 +11,7 @@
     </select>
 
     <select id="updateUser" parameterType="Map">
-        update tb_user t set t.user_name=#{userName}, t.user_sex=#{userSex} where t.id=#{id};
+        update tb_user t set t.t_name=#{userName}, t.t_sex=#{userSex} where t.id=#{id};
     </select>
 
     <select id="getUser" parameterType="Long" resultType="User">
