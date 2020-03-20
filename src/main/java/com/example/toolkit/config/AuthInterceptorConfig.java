@@ -19,7 +19,8 @@ public class AuthInterceptorConfig implements WebMvcConfigurer {
      *
      * @return
      */
-    AuthInterceptor springMVCInterceptor(){
+    AuthInterceptor springMVCInterceptor() {
+        System.out.println("new AuthInterceptor()============");
         return new AuthInterceptor();
     }
 
@@ -30,6 +31,7 @@ public class AuthInterceptorConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        System.out.println("registry.addInterceptor()=========");
         registry.addInterceptor(springMVCInterceptor());
     }
 

@@ -5,7 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * 设计思想：过滤器是servlet开发中的概念，用于对处理器进行预处理、后处理
+ * 设计思想：基于函数回调，依赖于Servlet容器，可以对几乎所有的请求起作用
+ *          只能在容器初始化的时候被调用一次
  * 适用场景：切面应用，如用户登录、日志记录等
  * 使用方法：实现javax.servlet.Filter接口，配置FilterRegistrationBean
  *
