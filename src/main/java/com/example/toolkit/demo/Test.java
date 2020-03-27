@@ -17,7 +17,7 @@ public class Test {
 
     private static void replaceTest() {
         Map map = new HashMap<>();
-        map.put("mobile", "[13356855841]");
+        map.put("mobile", "[123456789]");
         String str = map.get("mobile").toString().replace("[", "").replace("]", "");
         System.out.println(str);
     }
