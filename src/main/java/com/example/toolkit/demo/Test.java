@@ -1,7 +1,9 @@
 package com.example.toolkit.demo;
 
-
 import com.example.HelloWorldService;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Author cph
@@ -11,5 +13,12 @@ public class Test {
     public static void main(String[] args) {
         HelloWorldService service = new HelloWorldService();
         service.hello();
+    }
+
+    private static void replaceTest() {
+        Map map = new HashMap<>();
+        map.put("mobile", "[13356855841]");
+        String str = map.get("mobile").toString().replace("[", "").replace("]", "");
+        System.out.println(str);
     }
 }
