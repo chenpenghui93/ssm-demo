@@ -14,8 +14,15 @@ import java.util.Set;
 public class Test {
     public static void main(String[] args) {
 
-        collectionOperationTest();
+    }
 
+    private static void substringtest() {
+        String str = "basic-mqMessages-query";
+        //返回起始位置，下标从0开始
+        int begin = str.indexOf("-");
+        int end = str.lastIndexOf("-");
+        String result =str.substring(begin+1, end);
+        System.out.println(result);
     }
 
     private static void collectionOperationTest() {
