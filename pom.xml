@@ -50,21 +50,21 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- junit单元测试 -->
+        <!-- junit 单元测试 -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
 
-        <!-- 引入fastjson用于java对象与其JSON形式之间互转 -->
+        <!-- fastjson java对象与其JSON形式之间互转 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.54</version>
         </dependency>
 
-        <!-- 引入javax.mail用于发送邮件 -->
+        <!-- javax.mail 用于发送邮件 -->
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
@@ -169,6 +169,19 @@
             <artifactId>my-first-starter</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+        <!-- 规则引擎 https://github.com/j-easy/easy-rules -->
+        <dependency>
+            <groupId>org.jeasy</groupId>
+            <artifactId>easy-rules-core</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jeasy</groupId>
+            <artifactId>easy-rules-mvel</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+
     </dependencies>
 
     <!-- 打包为可执行的jar -->
