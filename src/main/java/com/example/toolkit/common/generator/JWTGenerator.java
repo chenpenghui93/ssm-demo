@@ -1,4 +1,4 @@
-package com.example.toolkit.common;
+package com.example.toolkit.common.generator;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -18,7 +18,7 @@ import java.util.Map;
  * @Author cph
  * @Date 2020/1/17
  */
-public class JWTUtils {
+public class JWTGenerator {
 
     /**
      * 密钥
