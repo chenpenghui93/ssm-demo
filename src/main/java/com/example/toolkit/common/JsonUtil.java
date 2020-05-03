@@ -9,7 +9,7 @@ import com.alibaba.fastjson.JSON;
  * @version 1.0.0
  * @date 2018/12/20
  */
-public class JsonUtils {
+public class JsonUtil {
 
     /**
      * Java对象转换为JSON字符串

@@ -1,4 +1,4 @@
-package com.example.toolkit.common.sensitive;
+package com.example.toolkit.common;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
@@ -17,9 +17,9 @@ import java.util.*;
  * @author chenpenghui
  * @date 2020/5/3
  */
-public class SensitiveInfoUtils {
+public class DesensitizationUtil {
 
-    private static final Logger logger = LoggerFactory.getLogger(SensitiveInfoUtils.class);
+    private static final Logger logger = LoggerFactory.getLogger(DesensitizationUtil.class);
 
     /**
      * [中文姓名] 只显示第一个汉字，其他隐藏为2个星号<例子：李**>
@@ -165,7 +165,7 @@ public class SensitiveInfoUtils {
                 Gson g = new Gson();
                 Object clone = g.fromJson(g.toJson(javaBean, javaBean.getClass()), javaBean.getClass());
                 Set<Integer> referenceCounter = new HashSet<Integer>();
-                SensitiveInfoUtils.replace(SensitiveInfoUtils.findAllField(raw), clone, referenceCounter);
+                DesensitizationUtil.replace(DesensitizationUtil.findAllField(raw), clone, referenceCounter);
                 json = JSON.toJSONString(clone, SerializerFeature.WriteMapNullValue, SerializerFeature.WriteNullListAsEmpty);
                 referenceCounter.clear();
                 referenceCounter = null;
@@ -198,14 +198,14 @@ public class SensitiveInfoUtils {
                             int len = Array.getLength(value);
                             for (int i = 0; i < len; i++) {
                                 Object arrayObject = Array.get(value, i);
-                                SensitiveInfoUtils.replace(SensitiveInfoUtils.findAllField(arrayObject.getClass()), arrayObject, referenceCounter);
+                                DesensitizationUtil.replace(DesensitizationUtil.findAllField(arrayObject.getClass()), arrayObject, referenceCounter);
                             }
                         } else if (value instanceof Collection<?>) {
                             Collection<?> c = (Collection<?>) value;
                             Iterator<?> it = c.iterator();
                             while (it.hasNext()) {
                                 Object collectionObj = it.next();
-                                SensitiveInfoUtils.replace(SensitiveInfoUtils.findAllField(collectionObj.getClass()), collectionObj, referenceCounter);
+                                DesensitizationUtil.replace(DesensitizationUtil.findAllField(collectionObj.getClass()), collectionObj, referenceCounter);
                             }
                         } else if (value instanceof Map<?, ?>) {
                             Map<?, ?> m = (Map<?, ?>) value;
@@ -213,7 +213,7 @@ public class SensitiveInfoUtils {
                             for (Object o : set) {
                                 Map.Entry<?, ?> entry = (Map.Entry<?, ?>) o;
                                 Object mapVal = entry.getValue();
-                                SensitiveInfoUtils.replace(SensitiveInfoUtils.findAllField(mapVal.getClass()), mapVal, referenceCounter);
+                                DesensitizationUtil.replace(DesensitizationUtil.findAllField(mapVal.getClass()), mapVal, referenceCounter);
                             }
                         } else if (!type.isPrimitive()
                                 && !StringUtils.startsWith(type.getPackage().getName(), "javax.")
@@ -221,7 +221,7 @@ public class SensitiveInfoUtils {
                                 && !StringUtils.startsWith(field.getType().getName(), "javax.")
                                 && !StringUtils.startsWith(field.getName(), "java.")
                                 && referenceCounter.add(value.hashCode())) {
-                            SensitiveInfoUtils.replace(SensitiveInfoUtils.findAllField(type), value, referenceCounter);
+                            DesensitizationUtil.replace(DesensitizationUtil.findAllField(type), value, referenceCounter);
                         }
                     }
                     // 2. 处理自身的属性
