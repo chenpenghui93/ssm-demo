@@ -1,6 +1,7 @@
 package com.example.toolkit.controller;
 
 import com.example.toolkit.dao.UserDao;
+import com.example.toolkit.demo.annotation.MyAnnotation;
 import com.example.toolkit.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,7 @@ public class UserController {
     @Autowired
     UserDao userDao;
 
+    @MyAnnotation(name = "Hello,Annotation")
     @RequestMapping(value = "/")
     public String index() {
         return "Hello World!";
