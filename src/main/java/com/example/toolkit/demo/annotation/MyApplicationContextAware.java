@@ -21,9 +21,15 @@ import java.util.Objects;
 public class MyApplicationContextAware implements ApplicationContextAware {
 
     protected ApplicationContext applicationContext;
+
     private String MESSAGE = "helloworld.message";
+
     @Inject
-    private Environment environment;
+    private Environment env;
+
+    public MyApplicationContextAware(Environment env) {
+        this.env = env;
+    }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
@@ -42,6 +48,7 @@ public class MyApplicationContextAware implements ApplicationContextAware {
                     if (Objects.nonNull(myAnnotation)) {
                         String name = myAnnotation.name();
                         System.out.println("===MyApplicationContextAware.init()=== " + name);
+                        System.out.println(env.getProperty(MESSAGE));
                     }
                 }
             }
