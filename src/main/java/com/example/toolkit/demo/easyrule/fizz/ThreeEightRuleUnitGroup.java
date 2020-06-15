@@ -1,4 +1,4 @@
-package com.example.toolkit.demo.ruleengine.easyrule;
+package com.example.toolkit.demo.easyrule.fizz;
 
 import org.jeasy.rules.annotation.Rule;
 import org.jeasy.rules.support.UnitRuleGroup;
