@@ -21,6 +21,6 @@ public class EightRule {
 
     @Priority
     public int getPriority() {
-        return 2;
+        return 8;
     }
 }

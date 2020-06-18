@@ -19,6 +19,6 @@ public class ThreeEightRuleUnitGroup extends UnitRuleGroup {
 
     @Override
     public int getPriority() {
-        return 0;
+        return 99;
     }
 }
