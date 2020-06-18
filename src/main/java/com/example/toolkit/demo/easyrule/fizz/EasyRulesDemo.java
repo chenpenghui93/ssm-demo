@@ -19,13 +19,13 @@ public class EasyRulesDemo {
 
         //创建规则执行引擎
         RulesEngineParameters parameters = new RulesEngineParameters();
-        //应用当前规则时，跳过下一个规则
+        //应用当前规则时，跳过其余规则
         parameters.skipOnFirstAppliedRule(true);
-//        //应用当前规则失败时，跳过下一个规则
+//        //应用当前规则失败时，跳过其余规则
 //        parameters.skipOnFirstFailedRule(true);
-//        //不触发规则，跳过下一个规则
+//        //不触发规则，跳过其余规则
 //        parameters.skipOnFirstNonTriggeredRule(true);
-//        //优先级超过定义的阈值时，跳过下一个规则
+//        //优先级超过定义的阈值时，跳过其余规则
 //        parameters.getPriorityThreshold();
         RulesEngine rulesEngine = new DefaultRulesEngine(parameters);
 
