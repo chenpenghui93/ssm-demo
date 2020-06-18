@@ -26,7 +26,7 @@ public class EasyRulesDemo {
         //不触发规则，跳过其余规则
 //        parameters.skipOnFirstNonTriggeredRule(true);
         //自定义规则的优先级超过定义的阈值时，跳过其余规则
-        parameters.setPriorityThreshold(5);
+//        parameters.setPriorityThreshold(5);
         RulesEngine rulesEngine = new DefaultRulesEngine(parameters);
 
         //2.注册规则
