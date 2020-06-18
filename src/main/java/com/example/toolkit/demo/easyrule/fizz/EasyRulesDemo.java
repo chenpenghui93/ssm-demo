@@ -17,7 +17,7 @@ import org.jeasy.rules.core.RulesEngineParameters;
 public class EasyRulesDemo {
     public static void main(String[] args) {
 
-        //创建规则执行引擎
+        //1.创建规则执行引擎
         RulesEngineParameters parameters = new RulesEngineParameters();
         //应用当前规则时，跳过其余规则
         parameters.skipOnFirstAppliedRule(true);
@@ -29,19 +29,19 @@ public class EasyRulesDemo {
 //        parameters.getPriorityThreshold();
         RulesEngine rulesEngine = new DefaultRulesEngine(parameters);
 
-        //创建规则
+        //2.注册规则
         Rules rules = new Rules();
         rules.register(new ThreeRule());
         rules.register(new EightRule());
         rules.register(new OtherRule());
         rules.register(new ThreeEightRuleUnitGroup(new ThreeRule(), new EightRule()));
 
-        //执行规则
+        //3.执行规则
         Facts facts = new Facts();
         for (int i = 1; i <= 50; i++) {
             facts.put("number", i);
             rulesEngine.fire(rules, facts);
-            System.out.println();
+            System.out.println("=========================================================");
         }
     }
 }
