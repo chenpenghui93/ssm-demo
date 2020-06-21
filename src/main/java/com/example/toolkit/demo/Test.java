@@ -13,7 +13,14 @@ import java.util.Set;
  */
 public class Test {
     public static void main(String[] args) {
+        String2Integer();
+    }
 
+    private static void String2Integer() {
+        String s = "1";
+//        Integer integer = Integer.parseInt(s, Integer.MAX_VALUE);
+        Integer integer = Integer.parseInt(s);
+        System.out.println(integer);
     }
 
     private static void substringtest() {
