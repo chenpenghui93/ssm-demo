@@ -2,10 +2,7 @@ package com.example.toolkit.demo;
 
 import com.example.HelloWorldService;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @Author cph
@@ -13,7 +10,14 @@ import java.util.Set;
  */
 public class Test {
     public static void main(String[] args) {
-        String2Integer();
+        testStreamDebugger();
+    }
+
+    private static void testStreamDebugger() {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+        list.stream()
+                .filter(item -> item > 3)
+                .forEach(System.out::println);
     }
 
     private static void String2Integer() {
