@@ -13,9 +13,9 @@ import org.springframework.web.client.RestTemplate;
  * @author cph
  * @date 2019/6/4
  */
-public class RestTemplateDemo {
+public class RestTemplateSample {
 
-    private static final Logger logger = LoggerFactory.getLogger(RestTemplateDemo.class);
+    private static final Logger logger = LoggerFactory.getLogger(RestTemplateSample.class);
 
     public static void main(String[] args) {
 
