@@ -36,13 +36,6 @@
             <version>3.3.2</version>
         </dependency>
 
-        <!-- lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-
         <!-- MySQL数据库驱动 -->
         <dependency>
             <groupId>mysql</groupId>
@@ -214,11 +207,12 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- SOAP webservice -->
+        <!-- 使用axis调用webservice接口 begin -->
         <dependency>
             <groupId>org.apache.axis</groupId>
             <artifactId>axis</artifactId>
             <version>1.4</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.axis</groupId>
@@ -235,10 +229,17 @@
             <artifactId>commons-discovery</artifactId>
             <version>0.5</version>
         </dependency>
-
-
-
-
+        <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!-- 使用axis调用webservice接口 end -->
 
     </dependencies>
 
