@@ -2,11 +2,11 @@ package com.example.toolkit.common.syncldap;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.axis.Constants;
-import org.apache.axis.client.Service;
 import org.apache.axis.encoding.XMLType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import javax.xml.namespace.QName;
@@ -22,6 +22,7 @@ import java.util.Objects;
  * @author chenpenghui
  * @date 2020/7/17
  */
+@Service
 public class LdapService {
 
     private final Logger log = LoggerFactory.getLogger(LdapService.class);
@@ -40,7 +41,7 @@ public class LdapService {
     @Value("${ldap.user.appSecretKey}")
     private String appSecretKey;
 
-    @Value("${ldap.user.userEndPoint}")
+    @Value("${ldap.user.endPoint}")
     private String endpoint;
 
     /**
@@ -64,7 +65,7 @@ public class LdapService {
     public List<LdapUser> getLdapUserList(String accessToken, String params) {
         List<LdapUser> ldapUserList = new ArrayList<>();
         try {
-            Service service = new Service();
+            org.apache.axis.client.Service service = new org.apache.axis.client.Service();
             Call call = service.createCall();
             call.setTargetEndpointAddress(endpoint);
             call.setOperationName(new QName("http://services.soap.ws.esc.para.com/", "ldapQueryInfoParams"));

@@ -16,41 +16,37 @@
         <relativePath/>
     </parent>
 
-    <!-- JDK版本 -->
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
-    <!-- 为web应用程序添加依赖包 -->
     <dependencies>
-        <!-- 使用Spring MVC构建web应用（包含RESTful）的启动器。使用Tomcat作为默认的内嵌容器 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- MyBatis-Plus 简化开发、只做增强、不做改变 -->
+        <!-- MyBatis-Plus 简化开发 -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.3.2</version>
         </dependency>
 
-        <!-- MySQL数据库驱动 -->
+        <!-- MySQL驱动 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- fastjson java对象与其JSON形式之间互转 -->
+        <!-- java对象与其JSON形式之间互转 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.54</version>
         </dependency>
 
-        <!--spring boot mail-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
@@ -63,14 +59,14 @@
             <version>1.5.0-b01</version>
         </dependency>
 
-        <!-- JWT:JSON Web Token -->
+        <!-- JSON Web Token -->
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
             <version>3.2.0</version>
         </dependency>
 
-        <!-- 引入Apache poi相关包用于导入、导出、转换等操作 -->
+        <!-- 导入、导出、转换 -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
@@ -98,7 +94,7 @@
             <version>2.0.2</version>
         </dependency>
 
-        <!-- 引入freemarker用于邮件通知 -->
+        <!-- 模板 -->
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
@@ -131,12 +127,6 @@
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
             <version>1.9.4</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>commons-logging</artifactId>
-                    <groupId>commons-logging</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <!-- 测试starter -->
@@ -156,61 +146,6 @@
             <groupId>org.jeasy</groupId>
             <artifactId>easy-rules-mvel</artifactId>
             <version>3.4.0</version>
-        </dependency>
-
-        <!--junit5测试框架-->
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-launcher</artifactId>
-            <version>1.6.2</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>apiguardian-api</artifactId>
-                    <groupId>org.apiguardian</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>opentest4j</artifactId>
-                    <groupId>org.opentest4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.6.2</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>apiguardian-api</artifactId>
-                    <groupId>org.apiguardian</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <version>5.6.2</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>junit-jupiter-api</artifactId>
-                    <groupId>org.junit.jupiter</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>dom4j</artifactId>
-                    <groupId>org.dom4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>5.2.5.RELEASE</version>
-            <scope>compile</scope>
         </dependency>
 
         <!-- commons-lang3 -->
@@ -239,12 +174,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <artifactId>spring-test</artifactId>
-                    <groupId>org.springframework</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <!-- 使用axis调用webservice接口 begin -->
@@ -280,6 +209,12 @@
             <optional>true</optional>
         </dependency>
         <!-- 使用axis调用webservice接口 end -->
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>5.1.3.RELEASE</version>
+        </dependency>
 
     </dependencies>
 
