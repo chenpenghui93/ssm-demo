@@ -10,6 +10,13 @@ import java.util.List;
  */
 @Data
 public class LdapResult {
-    private LdapResponse ldapResponse;
-    private List<LdapUser> ldapUserList;
+    /**
+     * 返回结果
+     */
+    private LdapResponse result;
+
+    /**
+     * 用户列表
+     */
+    private List<LdapUser> data;
 }

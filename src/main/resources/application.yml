@@ -1,0 +1,27 @@
+# spring
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useSSH=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+  mail:
+    username:
+    password:
+
+# ldap
+ldap:
+  tokenUrl: ${LDAP_TOKEN_URL:xxx}
+  eidClass: ${LDAP_EIDCLASS:xxx}
+  user:
+    appSecretId: ${LDAP_USER_APPSECRETID:xxx}
+    appSecretKey: ${LDAP_USER_APPSECRETKEY:xxx}
+    endPoint: ${LDAP_USER_ENDPOINT:xxx}
+  dept:
+    appSecretId: ${LDAP_DEPT_APPSECRETID:xxx}
+    appSecretKey: ${LDAP_DEPT_APPSECRETKEY:xxx}
+    endPoint: ${LDAP_DEPT_ENDPOINT:xxx}
+
+# test
+helloworld:
+  message: Hello World

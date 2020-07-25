@@ -52,7 +52,7 @@ public class LdapService {
     public String getLdapAccessToken() {
         String getTokenUrl = tokenUrl + "?appSecretId=" + appSecretId + "&appSecretKey=" + appSecretKey + "&eidClass=" + eidClass;
         LdapResponse LdapResponse = restTemplate.getForObject(getTokenUrl, LdapResponse.class);
-        return LdapResponse.getAccessToken();
+        return LdapResponse.getTokenId();
     }
 
     /**
@@ -78,8 +78,8 @@ public class LdapService {
             String result = (String) call.invoke(new Object[]{accessToken, appSecretId, eidClass, ""});
             log.info("查询LDAP用户 结束 ...");
             LdapResult ldapResult = JSONObject.parseObject(result, LdapResult.class);
-            if (Objects.nonNull(ldapResult) && "SUCCESS".equals(ldapResult.getLdapResponse().getCode())) {
-                ldapUserList = ldapResult.getLdapUserList();
+            if (Objects.nonNull(ldapResult) && "SUCCESS".equals(ldapResult.getResult().getResCode())) {
+                ldapUserList = ldapResult.getData();
             }
         } catch (Exception e) {
             log.info("获取用户列表异常：" + e.getMessage());

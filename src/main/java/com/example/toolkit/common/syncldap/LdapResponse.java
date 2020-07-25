@@ -8,8 +8,23 @@ import lombok.Data;
  */
 @Data
 public class LdapResponse {
-    private String code;
-    private String msg;
-    private String accessToken;
-    private String expireTime;
+    /**
+     * 编码
+     */
+    private String resCode;
+
+    /**
+     * 消息
+     */
+    private String resMess;
+
+    /**
+     * token
+     */
+    private String tokenId;
+
+    /**
+     * 过期时间
+     */
+    private String effecTime;
 }
