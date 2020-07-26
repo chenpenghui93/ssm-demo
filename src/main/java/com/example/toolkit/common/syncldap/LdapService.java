@@ -2,7 +2,7 @@ package com.example.toolkit.common.syncldap;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.axis.Constants;
-import org.apache.axis.encoding.XMLType;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,55 +36,113 @@ public class LdapService {
     private String eidClass;
 
     @Value("${ldap.user.appSecretId}")
-    private String appSecretId;
+    private String userAppSecretId;
 
     @Value("${ldap.user.appSecretKey}")
-    private String appSecretKey;
+    private String userAppSecretKey;
 
     @Value("${ldap.user.endPoint}")
-    private String endpoint;
+    private String userEndpoint;
 
-    /**
-     * 获取accessToken
-     *
-     * @return accessToken
-     */
-    public String getLdapAccessToken() {
-        String getTokenUrl = tokenUrl + "?appSecretId=" + appSecretId + "&appSecretKey=" + appSecretKey + "&eidClass=" + eidClass;
-        LdapResponse LdapResponse = restTemplate.getForObject(getTokenUrl, LdapResponse.class);
-        return LdapResponse.getTokenId();
-    }
+    @Value("${ldap.dept.appSecretId}")
+    private String deptAppSecretId;
+
+    @Value("${ldap.dept.appSecretKey}")
+    private String deptAppSecretKey;
+
+    @Value("${ldap.dept.endPoint}")
+    private String deptEndpoint;
 
     /**
      * 获取LDAP用户列表
      *
-     * @param accessToken
-     * @param params
+     * @param userId
      * @return List<LdapUser>
      */
-    public List<LdapUser> getLdapUserList(String accessToken, String params) {
+    public List<LdapUser> getLdapUserList(String userId) {
         List<LdapUser> ldapUserList = new ArrayList<>();
+        String params = null;
+        if (StringUtils.isNotEmpty(userId)) {
+            params = "uid=" + userId;
+        }
+        String accessToken = getLdapAccessToken(userAppSecretId, userAppSecretKey);
+        String result = getLdapResult(accessToken, userEndpoint, userAppSecretId, "ldapQueryInfoParams", eidClass, params);
+        LdapUserResult ldapUserResult = JSONObject.parseObject(result, LdapUserResult.class);
+        if (Objects.nonNull(ldapUserResult) && "SUCCESS".equals(ldapUserResult.getResult().getResCode())) {
+            ldapUserList = ldapUserResult.getData();
+            log.info("查询LDAP用户成功...");
+        }
+        return ldapUserList;
+    }
+
+    /**
+     * 获取LDAP部门列表
+     *
+     * @param orgName
+     * @return List<LdapDept>
+     */
+    public List<LdapDept> getLdapDeptList(String orgName) {
+        List<LdapDept> ldapDeptList = new ArrayList<>();
+        String params = null;
+        if (StringUtils.isNotEmpty(orgName)) {
+            params = "ou=" + orgName;
+        }
+        String accessToken = getLdapAccessToken(deptAppSecretId, deptAppSecretKey);
+        String result = getLdapResult(accessToken, deptEndpoint, deptAppSecretId, "ldapQueryInfo", eidClass, params);
+        LdapDeptResult ldapDeptResult = JSONObject.parseObject(result, LdapDeptResult.class);
+        if (Objects.nonNull(ldapDeptResult) && "SUCCESS".equals(ldapDeptResult.getResult().getResCode())) {
+            ldapDeptList = ldapDeptResult.getData();
+            log.info("查询LDAP组织成功...");
+        }
+        return ldapDeptList;
+    }
+
+    /**
+     * 获取accessToken
+     *
+     * @param appSecretId
+     * @param appSecretKey
+     * @return String
+     */
+    public String getLdapAccessToken(String appSecretId, String appSecretKey) {
+        String getTokenUrl = tokenUrl + "?appSecretId=" + appSecretId + "&appSecretKey=" + appSecretKey + "&eidClass=" + eidClass;
+        LdapToken LdapToken = restTemplate.getForObject(getTokenUrl, LdapToken.class);
+        return LdapToken.getTokenId();
+    }
+
+    /**
+     * Webservice请求LDAP
+     *
+     * @param accessToken
+     * @param endPoint
+     * @param appSecretId
+     * @param eid
+     * @param params
+     * @return String
+     */
+    public String getLdapResult(String accessToken, String endPoint, String appSecretId, String functionName, String eid, String params) {
+        String result = "";
         try {
             org.apache.axis.client.Service service = new org.apache.axis.client.Service();
             Call call = service.createCall();
-            call.setTargetEndpointAddress(endpoint);
-            call.setOperationName(new QName("http://services.soap.ws.esc.para.com/", "ldapQueryInfoParams"));
-            call.addParameter("access_token", Constants.XSD_ANYTYPE, ParameterMode.IN);
+            call.setTargetEndpointAddress(endPoint);
+            call.setOperationName(new QName("http://services.soap.ws.esc.para.com/", functionName));
+            Object[] arrayParams = new Object[]{appSecretId, accessToken, eid};
             call.addParameter("appSecretId", Constants.XSD_ANYTYPE, ParameterMode.IN);
+            call.addParameter("access_token", Constants.XSD_ANYTYPE, ParameterMode.IN);
             call.addParameter("eidClass", Constants.XSD_ANYTYPE, ParameterMode.IN);
-            call.addParameter("params", Constants.XSD_ANYTYPE, ParameterMode.IN);
-            call.setReturnType(XMLType.XSD_STRING);
-            log.info("查询LDAP用户 开始 ...");
-            String result = (String) call.invoke(new Object[]{accessToken, appSecretId, eidClass, ""});
-            log.info("查询LDAP用户 结束 ...");
-            LdapResult ldapResult = JSONObject.parseObject(result, LdapResult.class);
-            if (Objects.nonNull(ldapResult) && "SUCCESS".equals(ldapResult.getResult().getResCode())) {
-                ldapUserList = ldapResult.getData();
+            if (StringUtils.isNotEmpty(params)) {
+                call.addParameter("params", org.apache.axis.Constants.XSD_ANYTYPE, ParameterMode.IN);
+                arrayParams = new Object[]{appSecretId, accessToken, eid, params};
             }
+            call.setReturnType(org.apache.axis.encoding.XMLType.XSD_STRING);
+            log.info("查询LDAP 开始 ...");
+            result = (String) call.invoke(arrayParams);
+            log.info("查询LDAP 结束 ...");
         } catch (Exception e) {
-            log.info("获取用户列表异常：" + e.getMessage());
+            log.error("查询LDAP异常：" + e.getMessage());
         }
-        return ldapUserList;
+        return result;
     }
 
 }
