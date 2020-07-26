@@ -22,9 +22,21 @@ public class LdapServiceTest {
 
     @Test
     public void syncLdapTest() {
-        String accessToken = ldapService.getLdapAccessToken();
-        List<LdapUser> list = ldapService.getLdapUserList(accessToken, "");
-        System.out.println(list.size());
+
+        // 全量用户
+        List<LdapUser> userList = ldapService.getLdapUserList(null);
+        System.out.println(userList.size());
+        // 指定用户
+        List<LdapUser> user = ldapService.getLdapUserList("xxx");
+        System.out.println(user.size());
+
+    }
+
+    @Test
+    public void syncOrgTest() {
+        // 全量组织
+        List<LdapDept> deptList = ldapService.getLdapDeptList(null);
+        System.out.println(deptList.size());
     }
 
 }
