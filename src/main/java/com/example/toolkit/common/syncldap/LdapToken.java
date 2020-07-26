@@ -7,7 +7,7 @@ import lombok.Data;
  * @date 2020/7/21
  */
 @Data
-public class LdapResponse {
+public class LdapToken {
     /**
      * 编码
      */
