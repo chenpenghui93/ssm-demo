@@ -9,11 +9,11 @@ import java.util.List;
  * @date 2020/7/21
  */
 @Data
-public class LdapResult {
+public class LdapUserResult {
     /**
      * 返回结果
      */
-    private LdapResponse result;
+    private LdapToken result;
 
     /**
      * 用户列表
