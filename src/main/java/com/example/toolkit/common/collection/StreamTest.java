@@ -39,7 +39,7 @@ public class StreamTest {
         int even = number.stream().filter(x -> x % 2 == 0).reduce(0, (ans, i) -> ans + i);
         System.out.println(even);
 
-        //to array
+        //to list
         String[] arrays = new String[]{"a", "b", "c"};
         List<String> list1 = Stream.of(arrays).collect(Collectors.toList());
         System.out.println("list1: "+list1);
@@ -47,8 +47,7 @@ public class StreamTest {
         List<String> list2 = Arrays.asList(arrays);
         System.out.println("list2: " + list2);
 
-
-        //to list
+        //to array
         String[] array1 = list1.stream().toArray(String[]::new);
         System.out.println("array1: " + Arrays.toString(array1));
 
