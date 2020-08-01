@@ -4,12 +4,12 @@ from v$locked_object a,
      dba_objects b
 where b.object_id = a.object_id;
 
--- 查看被缩表的sid、serial
+-- 查看被锁表的‘sid、serial’
 select b.username, b.sid, b.serial#, logon_time
 from v$locked_object a,
      v$session b
 where a.session_id = b.sid
 order by b.logon_time;
 
--- sid,serial
+-- 参数‘sid,serial’
 alter system kill session '547,36734';
