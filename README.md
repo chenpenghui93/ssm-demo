@@ -9,7 +9,9 @@
   - `-verbose` 显示生成过程
   - `-Xnocompile` 取消生成class文件
 
-- git fork同步其它仓库最新代码  
+- git clone从A库同步至B库(新项目)  
+  - New project → import project → Repo by URL  
+- git fork同步其它仓库最新代码(已有项目) 
  1.添加远程资源 `git remote add upstream http://xxx/xxx.git`  
  2.拉取分支信息 `git fetch upstream`  
  3.更新分支信息 `git merge upstream/dev develop`  
