@@ -1,4 +1,4 @@
-# tutorial-java-basic（Java相关工具、方法集合）
+# tutorial-java-basic
 
 - wsimport方式生成webservice客户端代码<br>
 `wsimport -s d:\download\wsdl\ -keep -p com.stock -verbose -Xnocompile http://www.webxml.com.cn/WebServices/StockInfoWS.asmx?wsdl`
@@ -11,6 +11,6 @@
 
 - git fork同步其它仓库最新代码  
  1.添加远程资源 `git remote add upstream http://xxx/xxx.git`  
- 2.拉取分支信息 `git fetch upstream`
- 3.更新分支信息 `git merge upstream/dev develop`
- 4.推送代码 `git push origin develop`
+ 2.拉取分支信息 `git fetch upstream`  
+ 3.更新分支信息 `git merge upstream/dev develop`  
+ 4.推送代码 `git push origin develop`  
