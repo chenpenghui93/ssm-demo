@@ -14,10 +14,24 @@ public class Test {
     }
 
     private static void testStreamDebugger() {
+        structureTest();
+        streamTest();
+    }
+
+    private static void streamTest() {
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
         list.stream()
                 .filter(item -> item > 3)
                 .forEach(System.out::println);
+    }
+
+    private static void structureTest() {
+        List<Map<String, List<String>>> result = new ArrayList<>();
+        List<String> list1 = Arrays.asList("1", "22", "33");
+        Map map1 = new HashMap();
+        map1.put("menu", list1);
+        result.add(map1);
+        System.out.println(result);
     }
 
     private static void String2Integer() {
