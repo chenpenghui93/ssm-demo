@@ -83,7 +83,7 @@ public class Test {
         //返回起始位置，下标从0开始
         int begin = str.indexOf("-");
         int end = str.lastIndexOf("-");
-        String result =str.substring(begin+1, end);
+        String result = str.substring(begin + 1, end);
         System.out.println(result);
     }
 
