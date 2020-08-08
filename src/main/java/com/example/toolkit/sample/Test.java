@@ -14,8 +14,45 @@ public class Test {
     }
 
     private static void testStreamDebugger() {
-        structureTest();
-        streamTest();
+
+        testIntegerRange();
+    }
+
+    private static void testIntegerRange() {
+        Integer i1 = -128;
+        Integer i2 = 100;
+        Integer i3 = 127;
+
+        Integer i4 = 128;
+        Integer i5 = -129;
+
+        Integer integer1 = -128;
+        Integer integer2 = 100;
+        Integer integer3 = 127;
+
+        Integer integer4 = 128;
+        Integer integer5 = -129;
+
+        // true
+        System.out.println(i1 == integer1);
+        // true
+        System.out.println(i1.equals(integer1));
+        // true
+        System.out.println(i2 == integer2);
+        // true
+        System.out.println(i2.equals(integer2));
+        // true
+        System.out.println(i3 == integer3);
+        // true
+        System.out.println(i3.equals(integer3));
+        // fasle
+        System.out.println(i4 == integer4);
+        // true
+        System.out.println(i4.equals(integer4));
+        // false
+        System.out.println(i5 == integer5);
+        // true
+        System.out.println(i5.equals(integer5));
     }
 
     private static void streamTest() {
