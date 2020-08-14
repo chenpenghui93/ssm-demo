@@ -14,12 +14,14 @@ import java.lang.reflect.Method;
 import java.util.*;
 
 /**
+ * 脱敏工具类
+ *
  * @author chenpenghui
  * @date 2020/5/3
  */
-public class DesensitizationUtil {
+public class DesensitiseUtil {
 
-    private static final Logger logger = LoggerFactory.getLogger(DesensitizationUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(DesensitiseUtil.class);
 
     /**
      * [中文姓名] 只显示第一个汉字，其他隐藏为2个星号<例子：李**>
@@ -165,7 +167,7 @@ public class DesensitizationUtil {
                 Gson g = new Gson();
                 Object clone = g.fromJson(g.toJson(javaBean, javaBean.getClass()), javaBean.getClass());
                 Set<Integer> referenceCounter = new HashSet<Integer>();
-                DesensitizationUtil.replace(DesensitizationUtil.findAllField(raw), clone, referenceCounter);
+                DesensitiseUtil.replace(DesensitiseUtil.findAllField(raw), clone, referenceCounter);
                 json = JSON.toJSONString(clone, SerializerFeature.WriteMapNullValue, SerializerFeature.WriteNullListAsEmpty);
                 referenceCounter.clear();
                 referenceCounter = null;
@@ -198,14 +200,14 @@ public class DesensitizationUtil {
                             int len = Array.getLength(value);
                             for (int i = 0; i < len; i++) {
                                 Object arrayObject = Array.get(value, i);
-                                DesensitizationUtil.replace(DesensitizationUtil.findAllField(arrayObject.getClass()), arrayObject, referenceCounter);
+                                DesensitiseUtil.replace(DesensitiseUtil.findAllField(arrayObject.getClass()), arrayObject, referenceCounter);
                             }
                         } else if (value instanceof Collection<?>) {
                             Collection<?> c = (Collection<?>) value;
                             Iterator<?> it = c.iterator();
                             while (it.hasNext()) {
                                 Object collectionObj = it.next();
-                                DesensitizationUtil.replace(DesensitizationUtil.findAllField(collectionObj.getClass()), collectionObj, referenceCounter);
+                                DesensitiseUtil.replace(DesensitiseUtil.findAllField(collectionObj.getClass()), collectionObj, referenceCounter);
                             }
                         } else if (value instanceof Map<?, ?>) {
                             Map<?, ?> m = (Map<?, ?>) value;
@@ -213,7 +215,7 @@ public class DesensitizationUtil {
                             for (Object o : set) {
                                 Map.Entry<?, ?> entry = (Map.Entry<?, ?>) o;
                                 Object mapVal = entry.getValue();
-                                DesensitizationUtil.replace(DesensitizationUtil.findAllField(mapVal.getClass()), mapVal, referenceCounter);
+                                DesensitiseUtil.replace(DesensitiseUtil.findAllField(mapVal.getClass()), mapVal, referenceCounter);
                             }
                         } else if (!type.isPrimitive()
                                 && !StringUtils.startsWith(type.getPackage().getName(), "javax.")
@@ -221,7 +223,7 @@ public class DesensitizationUtil {
                                 && !StringUtils.startsWith(field.getType().getName(), "javax.")
                                 && !StringUtils.startsWith(field.getName(), "java.")
                                 && referenceCounter.add(value.hashCode())) {
-                            DesensitizationUtil.replace(DesensitizationUtil.findAllField(type), value, referenceCounter);
+                            DesensitiseUtil.replace(DesensitiseUtil.findAllField(type), value, referenceCounter);
                         }
                     }
                     // 2. 处理自身的属性
@@ -275,43 +277,5 @@ public class DesensitizationUtil {
         Method[] methods = clazz.getMethods();
         return methods;
     }
-
-    //----------------------------------------------------------------------------------------------
-    public enum SensitiveType {
-        /**
-         * 中文名
-         */
-        CHINESE_NAME,
-
-        /**
-         * 身份证号
-         */
-        ID_CARD,
-        /**
-         * 座机号
-         */
-        FIXED_PHONE,
-        /**
-         * 手机号
-         */
-        MOBILE_PHONE,
-        /**
-         * 地址
-         */
-        ADDRESS,
-        /**
-         * 电子邮件
-         */
-        EMAIL,
-        /**
-         * 银行卡
-         */
-        BANK_CARD,
-        /**
-         * 公司开户银行联号
-         */
-        CNAPS_CODE;
-    }
-
 
 }

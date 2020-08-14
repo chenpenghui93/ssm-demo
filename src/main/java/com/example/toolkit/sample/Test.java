@@ -1,8 +1,11 @@
 package com.example.toolkit.sample;
 
 import com.example.HelloWorldService;
+import com.example.toolkit.common.RandomUtil;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @Author cph
@@ -10,6 +13,21 @@ import java.util.*;
  */
 public class Test {
     public static void main(String[] args) {
+    }
+
+    private static void regExIP() {
+        String ip = "127.0.0.1,192.168.3.4,172.16.95.48,10.19.49.124";
+        String regEx = "((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)";
+        Pattern pattern = Pattern.compile(regEx);
+        Matcher matcher = pattern.matcher(ip);
+        while (matcher.find()) {
+            String result = matcher.group();
+            System.out.println(result);
+            break;
+        }
+    }
+
+    private static void testJoin() {
         String s = String.join("--", "java", "is", "magic").concat("!!");
         System.out.println(s);
     }
