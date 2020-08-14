@@ -10,8 +10,8 @@ import java.util.*;
  */
 public class Test {
     public static void main(String[] args) {
-
-        testReg();
+        String s = String.join("--", "java", "is", "magic").concat("!!");
+        System.out.println(s);
     }
 
     private static void testReg() {

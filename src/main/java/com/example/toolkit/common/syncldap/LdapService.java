@@ -54,50 +54,6 @@ public class LdapService {
     private String deptEndpoint;
 
     /**
-     * 获取LDAP用户列表
-     *
-     * @param userId
-     * @return List<LdapUser>
-     */
-    public List<LdapUser> getLdapUserList(String userId) {
-        List<LdapUser> ldapUserList = new ArrayList<>();
-        String params = null;
-        if (StringUtils.isNotEmpty(userId)) {
-            params = "uid=" + userId;
-        }
-        String accessToken = getLdapAccessToken(userAppSecretId, userAppSecretKey);
-        String result = getLdapResult(accessToken, userEndpoint, userAppSecretId, "ldapQueryInfoParams", eidClass, params);
-        LdapUserResult ldapUserResult = JSONObject.parseObject(result, LdapUserResult.class);
-        if (Objects.nonNull(ldapUserResult) && "SUCCESS".equals(ldapUserResult.getResult().getResCode())) {
-            ldapUserList = ldapUserResult.getData();
-            log.info("查询LDAP用户成功...");
-        }
-        return ldapUserList;
-    }
-
-    /**
-     * 获取LDAP部门列表
-     *
-     * @param orgName
-     * @return List<LdapDept>
-     */
-    public List<LdapDept> getLdapDeptList(String orgName) {
-        List<LdapDept> ldapDeptList = new ArrayList<>();
-        String params = null;
-        if (StringUtils.isNotEmpty(orgName)) {
-            params = "ou=" + orgName;
-        }
-        String accessToken = getLdapAccessToken(deptAppSecretId, deptAppSecretKey);
-        String result = getLdapResult(accessToken, deptEndpoint, deptAppSecretId, "ldapQueryInfo", eidClass, params);
-        LdapDeptResult ldapDeptResult = JSONObject.parseObject(result, LdapDeptResult.class);
-        if (Objects.nonNull(ldapDeptResult) && "SUCCESS".equals(ldapDeptResult.getResult().getResCode())) {
-            ldapDeptList = ldapDeptResult.getData();
-            log.info("查询LDAP组织成功...");
-        }
-        return ldapDeptList;
-    }
-
-    /**
      * 获取accessToken
      *
      * @param appSecretId
@@ -143,6 +99,50 @@ public class LdapService {
             log.error("查询LDAP异常：" + e.getMessage());
         }
         return result;
+    }
+
+    /**
+     * 获取LDAP用户列表
+     *
+     * @param userId
+     * @return List<LdapUser>
+     */
+    public List<LdapUser> getLdapUserList(String userId) {
+        List<LdapUser> ldapUserList = new ArrayList<>();
+        String params = null;
+        if (StringUtils.isNotEmpty(userId)) {
+            params = "uid=" + userId;
+        }
+        String accessToken = getLdapAccessToken(userAppSecretId, userAppSecretKey);
+        String result = getLdapResult(accessToken, userEndpoint, userAppSecretId, "ldapQueryInfoParams", eidClass, params);
+        LdapUserResult ldapUserResult = JSONObject.parseObject(result, LdapUserResult.class);
+        if (Objects.nonNull(ldapUserResult) && "SUCCESS".equals(ldapUserResult.getResult().getResCode())) {
+            ldapUserList = ldapUserResult.getData();
+            log.info("查询LDAP用户成功...");
+        }
+        return ldapUserList;
+    }
+
+    /**
+     * 获取LDAP部门列表
+     *
+     * @param orgName
+     * @return List<LdapDept>
+     */
+    public List<LdapDept> getLdapDeptList(String orgName) {
+        List<LdapDept> ldapDeptList = new ArrayList<>();
+        String params = null;
+        if (StringUtils.isNotEmpty(orgName)) {
+            params = "ou=" + orgName;
+        }
+        String accessToken = getLdapAccessToken(deptAppSecretId, deptAppSecretKey);
+        String result = getLdapResult(accessToken, deptEndpoint, deptAppSecretId, "ldapQueryInfo", eidClass, params);
+        LdapDeptResult ldapDeptResult = JSONObject.parseObject(result, LdapDeptResult.class);
+        if (Objects.nonNull(ldapDeptResult) && "SUCCESS".equals(ldapDeptResult.getResult().getResCode())) {
+            ldapDeptList = ldapDeptResult.getData();
+            log.info("查询LDAP组织成功...");
+        }
+        return ldapDeptList;
     }
 
 }
