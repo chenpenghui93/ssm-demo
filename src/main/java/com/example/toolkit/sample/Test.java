@@ -1,9 +1,7 @@
 package com.example.toolkit.sample;
 
 import com.example.HelloWorldService;
-import com.example.toolkit.common.RandomUtil;
 import com.google.common.base.CaseFormat;
-import org.apache.ibatis.annotations.Case;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -15,8 +13,14 @@ import java.util.regex.Pattern;
  */
 public class Test {
     public static void main(String[] args) {
-        caseFormatTest();
+        splitTest();
 
+    }
+
+    private static void splitTest() {
+        String string = "2020-08-18 22:39:07,2020-08-18 22:39:08";
+        System.out.println(string.split(",")[0].trim());
+        System.out.println(string.split(",")[1].trim());
     }
 
     private static void caseFormatTest() {
