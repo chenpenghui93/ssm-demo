@@ -222,6 +222,13 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>29.0-jre</version>
+        </dependency>
+
+
     </dependencies>
 
     <!-- 打包为可执行的jar -->

@@ -2,6 +2,8 @@ package com.example.toolkit.sample;
 
 import com.example.HelloWorldService;
 import com.example.toolkit.common.RandomUtil;
+import com.google.common.base.CaseFormat;
+import org.apache.ibatis.annotations.Case;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -13,6 +15,24 @@ import java.util.regex.Pattern;
  */
 public class Test {
     public static void main(String[] args) {
+        caseFormatTest();
+
+    }
+
+    private static void caseFormatTest() {
+        // 连字符 转 小驼峰 "test-data" -> "testData"
+        System.out.println(CaseFormat.LOWER_HYPHEN.to(CaseFormat.LOWER_CAMEL, "test-data"));
+        // 下划线 转 小驼峰 "test_data" -> "testData"
+        System.out.println(CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "test_data"));
+        // 下划线 转 大驼峰 "test_data" -> "TestData"
+        System.out.println(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, "test_data"));
+
+        // 小驼峰 转 下划线 test_data
+        System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, "testData"));
+        // 大驼峰 转 下划线 test_data
+        System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, "TestData"));
+        // 小驼峰 转 连字符 test-data
+        System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN, "testData"));
     }
 
     private static void regExIP() {

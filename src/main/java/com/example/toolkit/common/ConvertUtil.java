@@ -1,18 +1,18 @@
 package com.example.toolkit.common;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.base.CaseFormat;
 
 /**
- * JSON转换
+ * 转换工具类
  *
- * @author cph
- * @version 1.0.0
+ * @author chenpenghui
  * @date 2018/12/20
  */
-public class JsonUtil {
+public class ConvertUtil {
 
     /**
-     * Java对象转换为JSON字符串
+     * Java 对象转换为 JSON 字符串
      *
      * @param obj
      * @return String
@@ -22,7 +22,7 @@ public class JsonUtil {
     }
 
     /**
-     * JSON字符串解析为Java对象
+     * JSON 字符串解析为 Java 对象
      *
      * @param json
      * @param clazz
@@ -33,4 +33,13 @@ public class JsonUtil {
         return JSON.parseObject(json, clazz);
     }
 
+    /**
+     * 小驼峰转下划线,例 "testData" -> "test_data"
+     *
+     * @param str
+     * @return
+     */
+    public static String lowerCamel2Underscope(String str) {
+        return CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, str);
+    }
 }
