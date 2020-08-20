@@ -34,7 +34,7 @@ public class ConvertUtil {
     }
 
     /**
-     * 小驼峰转下划线,例 "testData" -> "test_data"
+     * 小驼峰转下划线，例 "testData" -> "test_data"
      *
      * @param string
      * @return
@@ -64,7 +64,7 @@ public class ConvertUtil {
     }
 
     /**
-     * 下划线转小驼峰 例 "test_data" -> "testData"
+     * 下划线转小驼峰，例 "test_data" -> "testData"
      *
      * @param string
      * @return
@@ -74,7 +74,7 @@ public class ConvertUtil {
     }
 
     /**
-     * 下划线转大驼峰 例 "test_data" -> "TestData"
+     * 下划线转大驼峰，例 "test_data" -> "TestData"
      *
      * @param string
      * @return
@@ -84,7 +84,7 @@ public class ConvertUtil {
     }
 
     /**
-     * 连字符转小驼峰 例 "test-data" -> "testData"
+     * 连字符转小驼峰，例 "test-data" -> "testData"
      *
      * @param string
      * @return
