@@ -1,5 +1,6 @@
 package com.example.toolkit.common.datetime;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
@@ -12,12 +13,29 @@ import java.util.TimeZone;
  * @date 2019/6/28
  */
 public class DateConvertTest {
-    public static void main(String[] args) {
-        string2LocalDate();
-        localDateTest();
-        localDate2Date();
-        unixTimeTest();
+    public static void main(String[] args) throws Exception{
+//        string2LocalDate();
+//        localDateTest();
+//        localDate2Date();
+//        unixTimeTest();
+//        date2LocalDate();
 
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+//
+//        DateFormat dateTimeInstance = .parse("Sat Jun 06 DateFormat.getDateTimeInstance();
+//        Date date1 = dateTimeInstance00:00:00 CST 2020");
+//        System.out.println(date1);
+//        System.out.println(sdf.format(date1));
+
+
+    }
+
+    private static void date2LocalDate() {
+        Date date = new Date();
+        Instant instant = date.toInstant();
+        ZoneId zoneId = ZoneId.systemDefault();
+        LocalDate localDate = instant.atZone(zoneId).toLocalDate();
+        System.out.println(localDate);
     }
 
     private static void unixTimeTest() {
