@@ -13,9 +13,9 @@ import java.util.TimeZone;
  */
 public class DateConvertTest {
     public static void main(String[] args) {
-//        string2LocalDate();
-//        localDateTest();
-//        localDate2Date();
+        string2LocalDate();
+        localDateTest();
+        localDate2Date();
         unixTimeTest();
 
     }
