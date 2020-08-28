@@ -17,6 +17,9 @@ public class LocalDateTest {
         localDateTimeTest();
     }
 
+    /**
+     * LocalDate获取各种日期
+     */
     public static void localDateTest() {
         System.out.println("========LocalDate========");
         LocalDate today = LocalDate.now();
@@ -47,6 +50,9 @@ public class LocalDateTest {
         System.out.println("当前日期的后一天(plus): " + today.plusDays(1));
     }
 
+    /**
+     * LocalTime获取各种时间
+     */
     public static void localTimeTest() {
         System.out.println("========LocalTime========");
         LocalTime now = LocalTime.now();
@@ -59,6 +65,9 @@ public class LocalDateTest {
         System.out.println("当前时间: " + now.withHour(0).withMinute(0).withSecond(0).withNano(0));
     }
 
+    /**
+     * LocalDateTime获取日期时间
+     */
     public static void localDateTimeTest() {
         System.out.println("========LocalDateTime========");
         long timestamp = System.currentTimeMillis();
