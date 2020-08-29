@@ -1,11 +1,13 @@
 package com.example.toolkit.sample.webservice;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * RestTemplate方式调用
@@ -14,62 +16,54 @@ import org.springframework.web.client.RestTemplate;
  * @date 2019/6/4
  */
 public class RestTemplateSample {
-
-    private static final Logger logger = LoggerFactory.getLogger(RestTemplateSample.class);
-
     public static void main(String[] args) {
+//        getForEntityNoHeader();
+//        getForEntityWithHeader();
+//        getForEntityWithParam();
 
-//        String param = "key=71b40e20f66b457fb10c251b8b380b4a&location=北京";
-//        String url = "https://api.heweather.net/s6/weather";
-//        int connectionTimeout = 10000;
-//        int socketTimeout = 5000;
-
-        String param = "";
-        String url = "https://www.qq.com";
-        int connectionTimeout = 10000;
-        int socketTimeout = 5000;
-
-        System.out.println(restPost(url, param, connectionTimeout, socketTimeout));
+        String url = "http://api.avatardata.cn/HistoryToday/LookUp?key=2db70b084f654526bd4e3e6aad003a3a&yue=1&ri=1&type=1&page=1&rows=5";
+        RestTemplate restTemplate = new RestTemplate();
+//        ResponseEntity<String> responseEntity = restTemplate.postForObject(url, String.class);
+//        String body = responseEntity.getBody();
+//        System.out.println(body);
 
     }
 
+    /**
+     * GET 无参 无须指定header
+     */
+    private static void getForEntityNoHeader() {
+        String url = "http://api.avatardata.cn/HistoryToday/LookUp?key=2db70b084f654526bd4e3e6aad003a3a&yue=1&ri=1&type=1&page=1&rows=5";
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
+        String body = responseEntity.getBody();
+        System.out.println(body);
+    }
 
     /**
-     * RestTemplate Post Demo
-     *
-     * @param url
-     * @param reqStr
-     * @param connectionTimeout
-     * @param socketTimeout
-     * @return
+     * GET 无参 指定header
      */
-    public static String restPost(String url, String reqStr, int connectionTimeout, int socketTimeout) {
-
-        //设置HttpComponentsClientHttpRequestFactory
-        ResponseEntity<String> responseEntity = null;
-        HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
-        requestFactory.setConnectionRequestTimeout(connectionTimeout);
-        requestFactory.setReadTimeout(socketTimeout);
-
-        //实例化RestTemplate
-        RestTemplate restTemplate = new RestTemplate(requestFactory);
+    private static void getForEntityWithHeader() {
+        String url = "http://api.avatardata.cn/HistoryToday/LookUp?key=2db70b084f654526bd4e3e6aad003a3a&yue=1&ri=1&type=1&page=1&rows=5";
+        RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Content-Type", "text/plain;charset=UTF-8");
-        headers.set("Accept", "*/*;charset=UTF-8");
-        String body = null;
+        headers.add("Accept", "application/json");
+        HttpEntity<MultiValueMap<String, String>> httpEntity = new HttpEntity<>(headers);
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class, httpEntity);
+        String body = responseEntity.getBody();
+        System.out.println(body);
+    }
 
-        //调用
-        try {
-//            //Post
-//            responseEntity = restTemplate.postForEntity(url, new HttpEntity<>(reqStr, headers), String.class);
-            //Get
-            responseEntity = restTemplate.getForEntity(url, String.class);
-            logger.info("响应头：responseEntity.getHeaders() " + responseEntity.getHeaders());
-            body = new String(responseEntity.getBody().getBytes("ISO-8859-1"), "utf-8");
-            logger.info("响应体：responseEntity.getBody() " + responseEntity.getBody());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return body;
+    /**
+     * GET 有参
+     */
+    private static void getForEntityWithParam() {
+        String url = "http://api.avatardata.cn/HistoryToday/LookUp?key={key}&yue=1&ri=1&type=1&page=1&rows=5";
+        RestTemplate restTemplate = new RestTemplate();
+        Map params = new HashMap(1);
+        params.put("key", "2db70b084f654526bd4e3e6aad003a3a");
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class, params);
+        String body = responseEntity.getBody();
+        System.out.println(body);
     }
 }
