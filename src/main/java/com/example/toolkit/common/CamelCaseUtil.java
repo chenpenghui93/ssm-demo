@@ -1,37 +1,14 @@
 package com.example.toolkit.common;
 
-import com.alibaba.fastjson.JSON;
 import com.google.common.base.CaseFormat;
 
 /**
- * 转换工具类
+ * 驼峰与下划线、连字符转换工具类
  *
  * @author chenpenghui
- * @date 2018/12/20
+ * @date 2020-8-29
  */
-public class ConvertUtil {
-
-    /**
-     * Java 对象转换为 JSON 字符串
-     *
-     * @param object
-     * @return String
-     */
-    public static final String toJson(final Object object) {
-        return JSON.toJSONString(object);
-    }
-
-    /**
-     * JSON 字符串解析为 Java 对象
-     *
-     * @param json
-     * @param clazz
-     * @param <T>
-     * @return T
-     */
-    public static final <T> T toObject(final String json, final Class<T> clazz) {
-        return JSON.parseObject(json, clazz);
-    }
+public class CamelCaseUtil {
 
     /**
      * 小驼峰转下划线，例 "testData" -> "test_data"
@@ -92,5 +69,4 @@ public class ConvertUtil {
     public static String hyphen2LowerCamel(String string) {
         return CaseFormat.LOWER_HYPHEN.to(CaseFormat.LOWER_CAMEL, string);
     }
-
 }
