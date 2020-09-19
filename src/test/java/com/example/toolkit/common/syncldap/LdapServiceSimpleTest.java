@@ -18,7 +18,7 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class LdapServiceTest {
+public class LdapServiceSimpleTest {
 
     @Autowired
     private LdapService ldapService;

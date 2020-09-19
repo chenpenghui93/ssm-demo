@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * @Author cph
  * @Date 2020/3/25
  */
-public class Test {
+public class SimpleTest {
     public static void main(String[] args) {
         splitTest();
 
