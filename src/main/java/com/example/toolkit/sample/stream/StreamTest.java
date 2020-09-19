@@ -1,4 +1,4 @@
-package com.example.toolkit.common.collection;
+package com.example.toolkit.sample.stream;
 
 import java.util.*;
 import java.util.stream.*;

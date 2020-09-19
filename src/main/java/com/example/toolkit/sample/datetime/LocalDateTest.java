@@ -1,4 +1,4 @@
-package com.example.toolkit.common.datetime;
+package com.example.toolkit.sample.datetime;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;

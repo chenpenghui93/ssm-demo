@@ -1,4 +1,4 @@
-package com.example.toolkit.common.syncldap.axis;
+package com.example.toolkit.sample.webservice.axis;
 
 import lombok.Data;
 

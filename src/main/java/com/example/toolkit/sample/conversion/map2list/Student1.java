@@ -1,4 +1,4 @@
-package com.example.toolkit.common.collection;
+package com.example.toolkit.sample.conversion.map2list;
 
 /**
  * @Author cph

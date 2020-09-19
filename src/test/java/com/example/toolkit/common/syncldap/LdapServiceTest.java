@@ -1,8 +1,8 @@
 package com.example.toolkit.common.syncldap;
 
-import com.example.toolkit.common.syncldap.axis.LdapDept;
-import com.example.toolkit.common.syncldap.axis.LdapService;
-import com.example.toolkit.common.syncldap.axis.LdapUser;
+import com.example.toolkit.sample.webservice.axis.LdapDept;
+import com.example.toolkit.sample.webservice.axis.LdapService;
+import com.example.toolkit.sample.webservice.axis.LdapUser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

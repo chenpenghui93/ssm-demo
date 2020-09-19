@@ -1,4 +1,4 @@
-package com.example.toolkit.common.syncldap.xfire;
+package com.example.toolkit.sample.webservice.xfire;
 
 /**
  * https://www.programcreek.com/java-api-examples/?api=org.codehaus.xfire.client.XFireProxyFactory

@@ -1,4 +1,4 @@
-package com.example.toolkit.common.collection;
+package com.example.toolkit.sample.entry;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -17,7 +17,6 @@ public class EntryTest {
 
         //场景一，通过Map.values()遍历value，但不能遍历key
         for (String value : map.values()) {
-            System.out.println("value=" + value);
         }
         System.out.println("==========================================");
 

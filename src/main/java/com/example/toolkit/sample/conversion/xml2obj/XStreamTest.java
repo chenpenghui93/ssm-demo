@@ -1,6 +1,7 @@
-package com.example.toolkit.sample.convertxml;
+package com.example.toolkit.sample.conversion.xml2obj;
 
 import com.alibaba.fastjson.JSON;
+import com.example.toolkit.sample.conversion.xml2obj.User;
 import com.thoughtworks.xstream.XStream;
 
 /**

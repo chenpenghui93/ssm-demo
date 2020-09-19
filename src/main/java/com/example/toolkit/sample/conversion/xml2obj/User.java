@@ -1,4 +1,4 @@
-package com.example.toolkit.sample.convertxml;
+package com.example.toolkit.sample.conversion.xml2obj;
 
 /**
  * @author cph

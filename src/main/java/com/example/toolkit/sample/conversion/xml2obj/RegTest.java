@@ -1,4 +1,4 @@
-package com.example.toolkit.sample.convertxml;
+package com.example.toolkit.sample.conversion.xml2obj;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

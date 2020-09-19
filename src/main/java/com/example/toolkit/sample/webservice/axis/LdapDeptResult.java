@@ -1,4 +1,4 @@
-package com.example.toolkit.common.syncldap.axis;
+package com.example.toolkit.sample.webservice.axis;
 
 import lombok.Data;
 
@@ -6,17 +6,17 @@ import java.util.List;
 
 /**
  * @author chenpenghui
- * @date 2020/7/21
+ * @date 2020/7/26
  */
 @Data
-public class LdapUserResult {
+public class LdapDeptResult {
     /**
      * 返回结果
      */
     private LdapToken result;
 
     /**
-     * 用户列表
+     * 部门列表
      */
-    private List<LdapUser> data;
+    private List<LdapDept> data;
 }
