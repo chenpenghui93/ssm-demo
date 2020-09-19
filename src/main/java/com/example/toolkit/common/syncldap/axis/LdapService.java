@@ -1,4 +1,4 @@
-package com.example.toolkit.common.syncldap;
+package com.example.toolkit.common.syncldap.axis;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.axis.Constants;

@@ -1,4 +1,4 @@
-package com.example.toolkit.common.syncldap;
+package com.example.toolkit.common.syncldap.axis;
 
 import lombok.Data;
 import lombok.ToString;
