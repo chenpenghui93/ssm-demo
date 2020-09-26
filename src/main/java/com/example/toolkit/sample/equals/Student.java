@@ -1,5 +1,6 @@
 package com.example.toolkit.sample.equals;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -95,6 +96,7 @@ public class Student {
 
     @Override
     public int hashCode() {
+        // 调用Objects.hash()，数组类型可调用Arrays.hashCode()
         return Objects.hash(id, name, sex, age, score);
     }
 }
