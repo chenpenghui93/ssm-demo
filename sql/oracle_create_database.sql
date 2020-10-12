@@ -1,6 +1,6 @@
 -- 查询表空间路径
 select tablespace_name, file_id, bytes / 1024 / 1024, file_name from dba_data_files order by file_id;
--- 创建表空间
+-- 创建表空间(注意修改datafile路径及名称)
 create tablespace [namespace] datafile '/u01/oradata/PGDEVDB/uaadev01.dbf' size 5120 M;
 -- 创建用户并默认 表空间
 create user [username] identified by [password] default tablespace [namespace];
