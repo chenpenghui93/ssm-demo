@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 
 /**
+ * 用例 https://www.concretepage.com/spring/example_enableasync_spring
+ *
  * @author chenpenghui
  * @date 2020-10-17
  */
