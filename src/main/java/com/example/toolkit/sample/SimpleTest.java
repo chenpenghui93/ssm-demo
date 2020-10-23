@@ -13,8 +13,24 @@ import java.util.regex.Pattern;
  */
 public class SimpleTest {
     public static void main(String[] args) {
-        splitTest();
+        clazzTypeTest();
 
+    }
+
+    private static void clazzTypeTest() {
+        Map<String, Object> map = new HashMap<>();
+        // true
+        System.out.println(map instanceof Map);
+        // false
+        System.out.println(map.getClass().equals(Map.class));
+        // false
+        System.out.println(map.getClass().getName().equals(Map.class.getName()));
+
+        List<Map<String, Object>> list = new ArrayList<>();
+        // true
+        System.out.println(list instanceof List);
+        // false
+        System.out.println(list.getClass().equals(List.class));
     }
 
     private static void splitTest() {
