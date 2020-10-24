@@ -1,4 +1,4 @@
-package com.example.toolkit.sample.thread;
+package com.example.toolkit.sample.async;
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;

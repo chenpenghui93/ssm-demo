@@ -1,4 +1,4 @@
-package com.example.toolkit.sample.thread;
+package com.example.toolkit.sample.async;
 
 import org.springframework.stereotype.Service;
 
