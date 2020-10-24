@@ -48,6 +48,9 @@ public class TestAsyncController {
 
     /**
      * 使用spring注解实现异步执行
+     * 1、类上添加注解 @EnableAsync
+     * 2、方法上添加注解 @Async
+     * 3、业务方法注入类，直接调用方法
      */
     @GetMapping("/test2")
     public void test2() {
