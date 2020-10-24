@@ -1,6 +1,5 @@
 package com.example.toolkit.mapper;
 
-import com.example.toolkit.entity.Book;
 import com.example.toolkit.entity.User;
 import com.example.toolkit.service.TransactionService;
 import org.junit.Assert;
@@ -9,9 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -35,7 +32,7 @@ class UserMapperTest {
     }
 
     @Test
-    public void test1() throws Exception{
+    public void test1() throws Exception {
         service.ts();
     }
 

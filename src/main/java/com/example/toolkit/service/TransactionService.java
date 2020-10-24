@@ -20,7 +20,7 @@ public class TransactionService {
     private BookMapper bookMapper;
 
     @Transactional(rollbackFor = Exception.class)
-    public void ts() throws Exception{
+    public void ts() throws Exception {
         User user = new User();
         user.setId(6L);
         user.setName("zhangsan");
