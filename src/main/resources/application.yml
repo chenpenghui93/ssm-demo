@@ -25,3 +25,8 @@ ldap:
 # test
 helloworld:
   message: Hello World
+
+#jasypt加密密钥
+jasypt:
+  encryptor:
+    password: 4G4tN0z2v<u*Wm0
