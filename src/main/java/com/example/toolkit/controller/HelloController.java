@@ -12,7 +12,7 @@ public class HelloController {
 
     @GetMapping("/world")
     public String hello() {
-        return "hello world!";
+        return "{\"hello\":\"world\"}";
     }
 
     @PostMapping("/world/{name}")
