@@ -46,3 +46,13 @@ select sql_text,last_load_time from v$sql where sql_text like '%update%' order b
 alter table tablename enable row movement;
 flashback table tablename to timestamp to_timestamp('xxxx-xx-xx xx:xx:xx', 'yyyy-mm-dd hh24:mi:ss');
 -----------------rollback data end--------------------------------
+
+
+-----------------hierarchy query begin--------------------------------
+-- 查询当前级别所有父级(指定子级，父级=子级)
+select t.MENU_CODE,t.PARENT_CODE from SYS_MENU t
+start with t.MENU_CODE = 'release' connect by prior t.PARENT_CODE = t.MENU_CODE;
+-- 查询所有子级(指定父级，子级=父级)
+select t.MENU_CODE,t.PARENT_CODE from SYS_MENU t
+start with t.MENU_CODE = 'gateway' connect by prior t.MENU_CODE = t.PARENT_CODE;
+-----------------hierarchy query end--------------------------------
