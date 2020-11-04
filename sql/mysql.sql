@@ -1,3 +1,4 @@
+-----------------create database begin-------------------------------
 -- 远程连接
 mysql -u root -p -h x.x.x.x [-P 3306] [-D test1]
 -- 创建用户
@@ -26,3 +27,4 @@ set global validate_password.length=4;
 set global validate_password.mixed_case_count=0;
 set global validate_password.number_count=0;
 set global validate_password.number_count=0;
+-----------------create database end-------------------------------
