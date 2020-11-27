@@ -5,7 +5,7 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
 /**
- * 传递线程上下文
+ * 线程间传递上下文
  *
  * @author chenpenghui
  * @date 2020-11-27
