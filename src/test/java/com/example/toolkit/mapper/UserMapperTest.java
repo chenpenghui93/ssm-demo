@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author chenpenghui
@@ -27,13 +28,27 @@ class UserMapperTest {
     public void testSelect() {
         System.out.println(("----- selectAll method test ------"));
         List<User> userList = userMapper.selectList(null);
-        Assert.assertEquals(5, userList.size());
         userList.forEach(System.out::println);
     }
 
     @Test
     public void test1() throws Exception {
         service.ts();
+    }
+
+    @Test
+    public void testTransactional(){
+        List<User> userList = userMapper.selectList(null);
+        List<Long> ids = userList.stream().map(User::getId).collect(Collectors.toList());
+        userMapper.deleteBatchIds(ids);
+
+        User user = new User();
+        user.setId(99L);
+        user.setName("zhangsan");
+        user.setAge(9);
+        user.setEmail("zhangsan@xxx.com");
+        userMapper.insert(user);
+
     }
 
 }
