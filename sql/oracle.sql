@@ -48,7 +48,7 @@ flashback table tablename to timestamp to_timestamp('xxxx-xx-xx xx:xx:xx', 'yyyy
 -----------------rollback data end--------------------------------
 
 
------------------hierarchy query begin--------------------------------
+-----------------hierarchy query begin----------------------------
 -- 查询当前级别所有父级(指定子级，父级=子级)
 select t.MENU_CODE,t.PARENT_CODE from SYS_MENU t
 start with t.MENU_CODE = 'release' connect by prior t.PARENT_CODE = t.MENU_CODE;
@@ -56,3 +56,31 @@ start with t.MENU_CODE = 'release' connect by prior t.PARENT_CODE = t.MENU_CODE;
 select t.MENU_CODE,t.PARENT_CODE from SYS_MENU t
 start with t.MENU_CODE = 'gateway' connect by prior t.MENU_CODE = t.PARENT_CODE;
 -----------------hierarchy query end--------------------------------
+
+
+-----------------oracle loop example start---------------------------------
+declare
+    balance_Id   varchar2(100); -- 声明变量
+    balance_Name varchar2(100); -- 声明变量
+    conNum       number; -- 声明变量
+begin
+    -- 循环查询结果集
+    for item in (select A.BALANCE_ID, A.BALANCE_NAME from VIEW_GZ_YIMIAO A group by A.BALANCE_ID, A.BALANCE_NAME)
+        loop
+            -- 将结果数据赋值给变量
+            balance_Id := item.balance_id;
+            balance_Name := item.balance_name;
+            -- 查询结果集赋值
+            select COUNT(*) into conNum from Dxc_Consignor where NAME = balance_Name;
+            -- 执行判断逻辑
+            if conNum = 1 then
+                dbms_output.put_line('存在');
+                -- 执行业务逻辑
+                update Dxc_Consignor set TMSCODE=balance_Id where NAME = balance_Name;
+            else
+                dbms_output.put_line('不存在');
+                -- 执行业务逻辑
+            end if;
+        end loop;
+end;
+-----------------oracle loop example end---------------------------------
