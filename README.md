@@ -9,7 +9,34 @@
   - `-keep` 表示导出webservice的class文件时是否也导出源代码java文件
   - `-p` 定义生成类的包名
   - `-verbose` 显示生成过程
-  - `-Xnocompile` 取消生成class文件
+  - `-Xnocompile` 取消生成class文件  
+  
+- Maven上传jar包至Nexus仓库所需配置
+    ```xml
+    <!-- 1、项目pom文件中增加配置，参考如下 -->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>xxx-nexus</id>
+            <url>http://nexus.xxx.com/repository/maven-xxx-snapshot</url>
+        </snapshotRepository>
+        <repository>
+            <id>xxx-nexus</id>
+            <url>http://nexus.xxx.com/repository/maven-xxx-snapshot</url>
+        </repository>
+    </distributionManagement>
+    
+    <!-- 2、本地.m2目录下settings.xml配置server信息，参考如下 -->
+    <server>
+        <id>xxx-nexus</id>
+        <username>contributor</username>
+        <password>密码</password>
+    </server>
+    
+    <!-- 3、本地.m2目录下新建settings-security.xml，参考如下 -->
+    <settingsSecurity>
+        <master>密码</master>
+    </settingsSecurity>
+    ```
 
 ## Git
 - git clone从A库同步至B库(新项目)  
