@@ -29,7 +29,5 @@ public class JdbcTest {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
-
     }
 }
