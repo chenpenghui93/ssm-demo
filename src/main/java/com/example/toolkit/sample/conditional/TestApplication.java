@@ -6,6 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
+ * 参考 https://blog.csdn.net/weixin_44792004/article/details/103661167
+ *
  * @author chenpenghui
  * @date 2020-12-31
  */
