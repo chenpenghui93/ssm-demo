@@ -51,7 +51,7 @@ public class LdapUser {
     private String cn;
 
     /**
-     *
+     * 用户名英文
      */
     private String cnen;
 
