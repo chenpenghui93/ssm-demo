@@ -84,3 +84,11 @@ begin
         end loop;
 end;
 -----------------oracle loop example end---------------------------------
+
+-----------------indices start---------------------------------
+-- 默认B树索引，适用于基数较大时
+create index index_sys_user_list on sys_user('login_name');
+-- 位图索引，适用于基数较少时
+create bitmap index index_sys_user_list1 on sys_user('login_name');
+drop index index_sys_user_list;
+-----------------indices end---------------------------------
