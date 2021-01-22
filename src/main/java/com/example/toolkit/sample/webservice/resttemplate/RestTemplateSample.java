@@ -1,4 +1,4 @@
-package com.example.toolkit.sample.webservice;
+package com.example.toolkit.sample.webservice.resttemplate;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;

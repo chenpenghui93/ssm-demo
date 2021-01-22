@@ -1,4 +1,4 @@
-package com.example.toolkit.sample.webservice;
+package com.example.toolkit.sample.webservice.http;
 
 import javax.net.ssl.*;
 import java.io.BufferedReader;
@@ -17,7 +17,7 @@ import java.security.cert.X509Certificate;
  * @version 1.0
  * @date 2018/12/25
  */
-public class HttpsCallSample implements X509TrustManager {
+public class HttpsCall implements X509TrustManager {
 
     public static void main(String[] args) {
         String string = httpsRequest("https://kyfw.12306.cn/", "GET", null);
@@ -35,7 +35,7 @@ public class HttpsCallSample implements X509TrustManager {
         try {
             //创建SSLContext实例
             SSLContext sslContext = SSLContext.getInstance("SSL");
-            TrustManager[] trustManager = {(TrustManager) new HttpsCallSample()};
+            TrustManager[] trustManager = {(TrustManager) new HttpsCall()};
             //初始化SSLContext对象
             sslContext.init(null, trustManager, new java.security.SecureRandom());
             //获取SSLSocketFactory对象

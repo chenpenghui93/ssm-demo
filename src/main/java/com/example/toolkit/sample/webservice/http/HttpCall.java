@@ -1,4 +1,4 @@
-package com.example.toolkit.sample.webservice;
+package com.example.toolkit.sample.webservice.http;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -15,7 +15,7 @@ import java.net.URL;
  * @version 1.0
  * @date 2018/12/25
  */
-public class HttpCallSample {
+public class HttpCall {
 
     public static void main(String[] args) {
         String string = httpRequest("http://www.qq.com", "GET", null);

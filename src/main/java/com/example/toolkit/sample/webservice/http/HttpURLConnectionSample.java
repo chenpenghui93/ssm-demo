@@ -1,4 +1,4 @@
-package com.example.toolkit.sample.webservice;
+package com.example.toolkit.sample.webservice.http;
 
 import java.io.*;
 import java.net.HttpURLConnection;
