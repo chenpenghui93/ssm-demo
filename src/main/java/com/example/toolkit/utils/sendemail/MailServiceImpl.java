@@ -1,4 +1,4 @@
-package com.example.toolkit.common.sendemail;
+package com.example.toolkit.utils.sendemail;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

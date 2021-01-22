@@ -1,4 +1,4 @@
-package com.example.toolkit.common;
+package com.example.toolkit.utils;
 
 import java.util.UUID;
 

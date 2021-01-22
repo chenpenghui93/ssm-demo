@@ -1,4 +1,4 @@
-package com.example.toolkit.common.sendemail;
+package com.example.toolkit.utils.sendemail;
 
 /**
  * @author cph

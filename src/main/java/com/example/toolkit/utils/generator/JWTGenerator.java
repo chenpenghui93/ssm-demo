@@ -1,4 +1,4 @@
-package com.example.toolkit.common.generator;
+package com.example.toolkit.utils.generator;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;

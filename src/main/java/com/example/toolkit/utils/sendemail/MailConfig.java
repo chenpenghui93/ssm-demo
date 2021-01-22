@@ -1,4 +1,4 @@
-package com.example.toolkit.common.sendemail;
+package com.example.toolkit.utils.sendemail;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

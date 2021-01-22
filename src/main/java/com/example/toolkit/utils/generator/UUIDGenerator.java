@@ -1,4 +1,4 @@
-package com.example.toolkit.common.generator;
+package com.example.toolkit.utils.generator;
 
 import java.util.UUID;
 
