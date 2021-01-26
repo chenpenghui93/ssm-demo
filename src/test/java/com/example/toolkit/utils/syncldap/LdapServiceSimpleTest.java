@@ -1,4 +1,4 @@
-package com.example.toolkit.common.syncldap;
+package com.example.toolkit.utils.syncldap;
 
 import com.example.toolkit.sample.webservice.axis.LdapDept;
 import com.example.toolkit.sample.webservice.axis.LdapService;

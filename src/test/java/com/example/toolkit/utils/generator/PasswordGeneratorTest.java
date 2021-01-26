@@ -1,4 +1,4 @@
-package com.example.toolkit.common.generator;
+package com.example.toolkit.utils.generator;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

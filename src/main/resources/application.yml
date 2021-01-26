@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 # spring
 spring:
   main:
@@ -10,6 +13,29 @@ spring:
   mail:
     username:
     password:
+
+# jwt
+jwt:
+  secret: jwtsecret
+  tokenHeader: authorization
+  tokenPrefix: cph-
+  # 过期时间(秒) 1天后过期=86400 7天后过期=604800
+  expiration: 86400
+  antMatchers: /index/**,/login/**,/hello/**
+
+# mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    # 开启数据库列名到Java属性驼峰命名的映射
+    map-underscore-to-camel-case: true
+    # 查询数据为空时字段返回null
+    call-setters-on-nulls: true
+    # 打印sql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 # ldap
 ldap:
@@ -28,7 +54,7 @@ ldap:
 helloworld:
   message: Hello World
 
-#jasypt加密密钥
+# jasypt加密密钥
 jasypt:
   encryptor:
     password: 4G4tN0z2v<u*Wm0

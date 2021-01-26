@@ -1,5 +1,11 @@
 package com.example.toolkit.core;
 
+import com.alibaba.fastjson.JSON;
+import lombok.extern.slf4j.Slf4j;
+
+import javax.servlet.ServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +15,7 @@ import java.util.Map;
  * @author chenpenghui
  * @date 2020/6/14
  */
+@Slf4j
 public class Result extends HashMap<String, Object> {
 
     private static final long serialVersionUID = -1914243303483670534L;
@@ -94,6 +101,30 @@ public class Result extends HashMap<String, Object> {
      */
     public static Result error() {
         return error(500, "未知异常，请联系管理员");
+    }
+
+    /**
+     * 使用response输出json
+     *
+     * @param response
+     * @param map
+     */
+    public static void json(ServletResponse response, Map<String, Object> map){
+        PrintWriter pw = null;
+        try {
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json");
+            pw = response.getWriter();
+            pw.println(JSON.toJSONString(map));
+        } catch (IOException e) {
+            log.error("JSON输出异常" + e);
+            e.printStackTrace();
+        } finally {
+            if (pw != null) {
+                pw.flush();
+                pw.close();
+            }
+        }
     }
 
 }
