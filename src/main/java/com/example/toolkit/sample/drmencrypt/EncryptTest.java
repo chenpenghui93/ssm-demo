@@ -9,7 +9,7 @@ import java.io.File;
  * @author chenpenghui
  * @date 2021-1-21
  */
-public class Test {
+public class EncryptTest {
     public static void main(String[] args) {
         File file = new File("D:\\test.xlsx");
 
