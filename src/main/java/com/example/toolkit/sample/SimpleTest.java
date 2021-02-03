@@ -19,7 +19,7 @@ public class SimpleTest {
 
     private static void regularExpression() {
         String str = "${GATEWAY_APP_ID:57f14042}";
-        String regEX = "\\$\\{(\\w+):(\\w+)\\}";
+        String regEX = "\\$\\{(\\w+):(\\S+)\\}";
         Pattern pattern = Pattern.compile(regEX);
         Matcher matcher = pattern.matcher(str);
         if (matcher.matches()) {
