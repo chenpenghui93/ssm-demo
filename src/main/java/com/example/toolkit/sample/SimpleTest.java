@@ -13,8 +13,19 @@ import java.util.regex.Pattern;
  */
 public class SimpleTest {
     public static void main(String[] args) {
-        clazzTypeTest();
 
+        regularExpression();
+    }
+
+    private static void regularExpression() {
+        String str = "${GATEWAY_APP_ID:57f14042}";
+        String regEX = "\\$\\{(\\w+):(\\w+)\\}";
+        Pattern pattern = Pattern.compile(regEX);
+        Matcher matcher = pattern.matcher(str);
+        if (matcher.matches()) {
+            System.out.println(matcher.group(1));
+            System.out.println(matcher.group(2));
+        }
     }
 
     private static void clazzTypeTest() {
@@ -76,9 +87,9 @@ public class SimpleTest {
         String str1 = "2019-01-01 00:00:00";
         String str2 = "2020-01-01 00:00:00";
         String str3 = "2021-01-01 00:00:00";
-        System.out.println(str1.replaceAll("\\:|00|\\.0| ","").replace("-",""));
-        System.out.println(str2.replaceAll("\\:|00|\\.0| ","").replace("-",""));
-        System.out.println(str3.replaceAll("\\:|00|\\.0| ","").replace("-",""));
+        System.out.println(str1.replaceAll("\\:|00|\\.0| ", "").replace("-", ""));
+        System.out.println(str2.replaceAll("\\:|00|\\.0| ", "").replace("-", ""));
+        System.out.println(str3.replaceAll("\\:|00|\\.0| ", "").replace("-", ""));
     }
 
     private static void testIntegerRange() {
