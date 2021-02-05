@@ -87,8 +87,11 @@ end;
 
 -----------------indices start---------------------------------
 -- 默认B树索引，适用于基数较大时
-create index index_sys_user_list on sys_user('login_name');
+create index idx_su_login_name on sys_user('login_name');
 -- 位图索引，适用于基数较少时
 create bitmap index index_sys_user_list1 on sys_user('login_name');
 drop index index_sys_user_list;
+-- 查询索引生效状态
+select status from user_indexes where index_name = 'idx_su_login_name'
+
 -----------------indices end---------------------------------
