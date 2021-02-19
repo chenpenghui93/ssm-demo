@@ -1,9 +1,11 @@
 package com.example.toolkit.security.handler;
 
 
-import com.example.toolkit.core.Result;
+import com.example.toolkit.core.ResultUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +18,8 @@ import java.util.Map;
  * @author chenpenghui
  * @date 2021-1-24
  */
+@Slf4j
+@Component
 public class LogoutSuccessHandler implements org.springframework.security.web.authentication.logout.LogoutSuccessHandler {
 
     /**
@@ -31,6 +35,6 @@ public class LogoutSuccessHandler implements org.springframework.security.web.au
         result.put("code", "200");
         result.put("msg", "登出成功");
         SecurityContextHolder.clearContext();
-        Result.json(response, Result.ok(result));
+        ResultUtil.json(response, ResultUtil.ok(result));
     }
 }

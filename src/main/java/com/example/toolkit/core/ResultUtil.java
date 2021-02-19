@@ -16,11 +16,11 @@ import java.util.Map;
  * @date 2020/6/14
  */
 @Slf4j
-public class Result extends HashMap<String, Object> {
+public class ResultUtil extends HashMap<String, Object> {
 
     private static final long serialVersionUID = -1914243303483670534L;
 
-    public Result() {
+    public ResultUtil() {
         put("code", "0");
         put("msg", "success");
     }
@@ -30,8 +30,8 @@ public class Result extends HashMap<String, Object> {
      *
      * @return
      */
-    public static Result ok() {
-        return new Result();
+    public static ResultUtil ok() {
+        return new ResultUtil();
     }
 
     /**
@@ -40,8 +40,8 @@ public class Result extends HashMap<String, Object> {
      * @param map
      * @return
      */
-    public static Result ok(Map<String, Object> map) {
-        Result result = new Result();
+    public static ResultUtil ok(Map<String, Object> map) {
+        ResultUtil result = new ResultUtil();
         result.putAll(map);
         return result;
     }
@@ -52,8 +52,8 @@ public class Result extends HashMap<String, Object> {
      * @param obj
      * @return
      */
-    public static Result ok(Object obj) {
-        Result result = new Result();
+    public static ResultUtil ok(Object obj) {
+        ResultUtil result = new ResultUtil();
         result.put("data", obj);
         return result;
     }
@@ -64,8 +64,8 @@ public class Result extends HashMap<String, Object> {
      * @param msg
      * @return
      */
-    public static Result ok(String msg) {
-        Result result = new Result();
+    public static ResultUtil ok(String msg) {
+        ResultUtil result = new ResultUtil();
         result.put("msg", msg);
         return result;
     }
@@ -77,8 +77,8 @@ public class Result extends HashMap<String, Object> {
      * @param msg
      * @return
      */
-    public static Result error(int code, String msg) {
-        Result result = new Result();
+    public static ResultUtil error(int code, String msg) {
+        ResultUtil result = new ResultUtil();
         result.put("code", code);
         result.put("msg", msg);
         return result;
@@ -90,7 +90,7 @@ public class Result extends HashMap<String, Object> {
      * @param msg
      * @return
      */
-    public static Result error(String msg) {
+    public static ResultUtil error(String msg) {
         return error(500, msg);
     }
 
@@ -99,7 +99,7 @@ public class Result extends HashMap<String, Object> {
      *
      * @return
      */
-    public static Result error() {
+    public static ResultUtil error() {
         return error(500, "未知异常，请联系管理员");
     }
 

@@ -1,7 +1,7 @@
 package com.example.toolkit.security.handler;
 
 import com.example.toolkit.config.JWTConfig;
-import com.example.toolkit.core.Result;
+import com.example.toolkit.core.ResultUtil;
 import com.example.toolkit.security.entity.SelfUserEntity;
 import com.example.toolkit.utils.JWTTokenUtil;
 import org.springframework.security.core.Authentication;
@@ -31,6 +31,6 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
         result.put("code", "200");
         result.put("msg", "登录成功");
         result.put("token", token);
-        Result.json(response, result);
+        ResultUtil.json(response, result);
     }
 }

@@ -1,6 +1,6 @@
 package com.example.toolkit.security.handler;
 
-import com.example.toolkit.core.Result;
+import com.example.toolkit.core.ResultUtil;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -19,6 +19,6 @@ public class AuthenticationEntryPointHandler implements AuthenticationEntryPoint
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) {
-        Result.json(response, Result.error(401, "未登录"));
+        ResultUtil.json(response, ResultUtil.error(401, "未登录"));
     }
 }

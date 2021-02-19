@@ -1,6 +1,6 @@
 package com.example.toolkit.security.handler;
 
-import com.example.toolkit.core.Result;
+import com.example.toolkit.core.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.LockedException;
@@ -27,17 +27,17 @@ public class LoginFailureHandler implements AuthenticationFailureHandler {
 
         if (e instanceof UsernameNotFoundException) {
             log.info("登录失败" + e.getMessage());
-            Result.json(response, Result.error(500, "用户名不存在！"));
+            ResultUtil.json(response, ResultUtil.error(500, "用户名不存在！"));
         }
         if (e instanceof LockedException) {
             log.info("登录失败" + e.getMessage());
-            Result.json(response, Result.error(500, "用户已被锁定！"));
+            ResultUtil.json(response, ResultUtil.error(500, "用户已被锁定！"));
         }
         if (e instanceof BadCredentialsException) {
             log.info("登录失败" + e.getMessage());
-            Result.json(response, Result.error(500, "用户名或密码不正确！"));
+            ResultUtil.json(response, ResultUtil.error(500, "用户名或密码不正确！"));
         }
 
-        Result.json(response, Result.error(500, "登录失败"));
+        ResultUtil.json(response, ResultUtil.error(500, "登录失败"));
     }
 }

@@ -16,9 +16,9 @@ spring:
 
 # jwt
 jwt:
-  secret: jwtsecret
-  tokenHeader: authorization
-  tokenPrefix: cph-
+  secret: JWTSecret
+  tokenHeader: Authorization
+  tokenPrefix: Sans-
   # 过期时间(秒) 1天后过期=86400 7天后过期=604800
   expiration: 86400
   antMatchers: /index/**,/login/**,/hello/**

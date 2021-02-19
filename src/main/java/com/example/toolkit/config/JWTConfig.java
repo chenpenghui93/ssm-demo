@@ -40,23 +40,23 @@ public class JWTConfig {
      */
     public static String antMatchers;
 
-    public static void setSecret(String secret) {
+    public void setSecret(String secret) {
         JWTConfig.secret = secret;
     }
 
-    public static void setTokenHeader(String tokenHeader) {
+    public void setTokenHeader(String tokenHeader) {
         JWTConfig.tokenHeader = tokenHeader;
     }
 
-    public static void setTokenPrefix(String tokenPrefix) {
+    public void setTokenPrefix(String tokenPrefix) {
         JWTConfig.tokenPrefix = tokenPrefix;
     }
 
-    public static void setExpiration(Integer expiration) {
+    public void setExpiration(Integer expiration) {
         JWTConfig.expiration = expiration * 1000;
     }
 
-    public static void setAntMatchers(String antMatchers) {
+    public void setAntMatchers(String antMatchers) {
         JWTConfig.antMatchers = antMatchers;
     }
 }
