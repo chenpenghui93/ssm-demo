@@ -1,3 +1,4 @@
+# 服务端口
 server:
   port: 8080
 
@@ -5,6 +6,7 @@ server:
 spring:
   main:
     allow-bean-definition-overriding: true
+  # 数据源
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/test?useSSH=false&serverTimezone=GMT%2B8
@@ -14,20 +16,26 @@ spring:
     username:
     password:
 
-# jwt
+# JWT配置
 jwt:
+  # 密钥
   secret: JWTSecret
+  # header key
   tokenHeader: Authorization
+  # 前缀字符
   tokenPrefix: Sans-
   # 过期时间(秒) 1天后过期=86400 7天后过期=604800
   expiration: 86400
+  # 不需要认证的接口
   antMatchers: /index/**,/login/**,/hello/**
 
-# mybatis-plus
+# mybatis-plus配置
 mybatis-plus:
+  # xml扫描，多个目录用逗号或分号分隔(关联mapper与xml文件)
   mapper-locations: classpath:mapper/*.xml
   global-config:
     db-config:
+      # 设置主键自增
       id-type: auto
   configuration:
     # 开启数据库列名到Java属性驼峰命名的映射
@@ -37,7 +45,7 @@ mybatis-plus:
     # 打印sql
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
-# ldap
+# ldap配置
 ldap:
   tokenUrl: ${LDAP_TOKEN_URL:xxx}
   eidClass: ${LDAP_EIDCLASS:xxx}
