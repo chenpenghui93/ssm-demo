@@ -77,6 +77,8 @@ begin
                 dbms_output.put_line('存在');
                 -- 执行业务逻辑
                 update Dxc_Consignor set TMSCODE=balance_Id where NAME = balance_Name;
+            elsif conNum > 1 then
+                dbms_output.put_line('存在多条');
             else
                 dbms_output.put_line('不存在');
                 -- 执行业务逻辑
