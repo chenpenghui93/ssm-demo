@@ -8,7 +8,7 @@ import com.alibaba.fastjson.JSON;
  * @author chenpenghui
  * @date 2018/12/20
  */
-public class JsonUtil {
+public class JSONUtil {
 
     /**
      * Java 对象转换为 JSON 字符串
