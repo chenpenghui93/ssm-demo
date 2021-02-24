@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @MapperScan("com.example.toolkit.mapper")
 @EnableAsync
-public class Application implements CommandLineRunner {
+public class Application {
 
     @Autowired
     QuartzTableService quartzTableService;
@@ -28,11 +28,5 @@ public class Application implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
-
-    @Override
-    public void run(String...strings) {
-        quartzTableService.startJobs();
-    }
-
 }
 
