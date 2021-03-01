@@ -15,7 +15,7 @@ public class CommonUtil {
      * @return List<List < T>>
      * @description 主要处理oracle中in不能超过一千的问题
      */
-    public static <T> List<List<T>> getSplitList(List<T> list, int cutLength) {
+    public static <T> List<List<T>> splitList(List<T> list, int cutLength) {
 
         if (list == null) {
             throw new NullPointerException("传入的集合不能为null");
