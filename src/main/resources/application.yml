@@ -19,15 +19,15 @@ spring:
 # JWT配置
 jwt:
   # 密钥
-  secret: JWTSecret
+  secret: ${JWT_SECRET:JWTSecret}
   # header key
-  tokenHeader: Authorization
+  tokenHeader: ${JWT_TOKEN_HEADER:Authorization}
   # 前缀字符
-  tokenPrefix: Sans-
+  tokenPrefix: ${JWT_TOKEN_PREFIX:Sans-}
   # 过期时间(秒) 1天后过期=86400 7天后过期=604800
-  expiration: 86400
+  expiration: ${JWT_EXPIRATION:86400}
   # 不需要认证的接口
-  antMatchers: /index/**,/login/**,/hello/**,/updateStatus
+  antMatchers: ${JWT_ANTMATCHERS:/index/**,/login/**,/hello/**,/updateStatus}
 
 # mybatis-plus配置
 mybatis-plus:
