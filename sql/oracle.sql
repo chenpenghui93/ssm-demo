@@ -42,9 +42,11 @@ alter system kill session '547,36734';
 -----------------rollback data begin------------------------------
 -- 查询sql执行历史确定回滚时间点
 select sql_text,last_load_time from v$sql where sql_text like '%update%' order by last_load_time desc;
--- 将数据回滚至指定时间点
+-- 闪回查询（将数据回滚至指定时间点）
 alter table tableName enable row movement;
 flashback table tableName to timestamp to_timestamp('2021-03-02 09:30:00', 'yyyy-mm-dd hh24:mi:ss');
+-- 闪回删除
+flashback table tableName to before;
 -----------------rollback data end--------------------------------
 
 
