@@ -44,7 +44,7 @@ alter system kill session '547,36734';
 select sql_text,last_load_time from v$sql where sql_text like '%update%' order by last_load_time desc;
 -- 将数据回滚至指定时间点
 alter table tableName enable row movement;
-flashback table tableName to timestamp to_timestamp('xxxx-xx-xx xx:xx:xx', 'yyyy-mm-dd hh24:mi:ss');
+flashback table tableName to timestamp to_timestamp('2021-03-02 09:30:00', 'yyyy-mm-dd hh24:mi:ss');
 -----------------rollback data end--------------------------------
 
 
