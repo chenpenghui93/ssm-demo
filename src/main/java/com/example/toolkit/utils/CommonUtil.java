@@ -1,7 +1,10 @@
 package com.example.toolkit.utils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author chenpenghui
@@ -39,4 +42,24 @@ public class CommonUtil {
         }
         return groupList;
     }
+
+    /**
+     * 提取list中的重复元素
+     *
+     * @param list
+     * @param <E>
+     * @return
+     */
+    private static <E> List<E> duplicateList(List<E> list) {
+        return list.stream()
+                // 获取元素出现频率的map，键为元素，值为元素出现的次数
+                .collect(Collectors.toMap(t -> t, t -> 1, Integer::sum))
+                .entrySet()
+                .stream()
+                // 过滤出元素出现次数大于1的entry
+                .filter(t -> t.getValue() > 1)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+    }
+
 }
