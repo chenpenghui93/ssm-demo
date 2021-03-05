@@ -4,6 +4,8 @@ server:
 
 # spring
 spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
   main:
     allow-bean-definition-overriding: true
   # 数据源
@@ -57,10 +59,6 @@ ldap:
     appSecretId: ${LDAP_DEPT_APPSECRETID:xxx}
     appSecretKey: ${LDAP_DEPT_APPSECRETKEY:xxx}
     endPoint: ${LDAP_DEPT_ENDPOINT:xxx}
-
-# test
-helloworld:
-  message: Hello World
 
 # jasypt加密密钥
 jasypt:
