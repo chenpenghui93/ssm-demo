@@ -1,7 +1,7 @@
 package com.example.toolkit.security.jwt;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.toolkit.config.JWTConfig;
+import com.example.toolkit.security.config.JWTConfig;
 import com.example.toolkit.security.entity.SelfUserEntity;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;

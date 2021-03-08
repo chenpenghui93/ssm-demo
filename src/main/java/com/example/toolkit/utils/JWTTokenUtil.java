@@ -1,7 +1,7 @@
 package com.example.toolkit.utils;
 
 import com.alibaba.fastjson.JSON;
-import com.example.toolkit.config.JWTConfig;
+import com.example.toolkit.security.config.JWTConfig;
 import com.example.toolkit.security.entity.SelfUserEntity;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

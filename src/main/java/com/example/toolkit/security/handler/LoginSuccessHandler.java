@@ -1,6 +1,6 @@
 package com.example.toolkit.security.handler;
 
-import com.example.toolkit.config.JWTConfig;
+import com.example.toolkit.security.config.JWTConfig;
 import com.example.toolkit.core.ResultUtil;
 import com.example.toolkit.security.entity.SelfUserEntity;
 import com.example.toolkit.utils.JWTTokenUtil;

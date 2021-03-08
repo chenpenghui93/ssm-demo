@@ -1,4 +1,4 @@
-package com.example.toolkit.config;
+package com.example.toolkit.security.config;
 
 import com.example.toolkit.security.UserAuthenticationProvider;
 import com.example.toolkit.security.handler.*;

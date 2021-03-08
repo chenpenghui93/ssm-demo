@@ -1,4 +1,4 @@
-package com.example.toolkit.config;
+package com.example.toolkit.security.config;
 
 import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
