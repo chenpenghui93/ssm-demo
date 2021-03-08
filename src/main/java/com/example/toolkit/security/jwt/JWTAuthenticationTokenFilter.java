@@ -54,11 +54,11 @@ public class JWTAuthenticationTokenFilter extends BasicAuthenticationFilter {
                 if (!StringUtils.isEmpty(username) && !StringUtils.isEmpty(userId)) {
                     // 获取角色
                     List<GrantedAuthority> authorities = new ArrayList<>();
-                    String authority = claims.get("authorites").toString();
+                    String authority = claims.get("authorities").toString();
                     if (!StringUtils.isEmpty(authority)) {
                         List<Map<String, String>> authorityMap = JSONObject.parseObject(authority, List.class);
                         for (Map<String, String> role : authorityMap) {
-                            if (StringUtils.isEmpty(role)) {
+                            if (!StringUtils.isEmpty(role)) {
                                 authorities.add(new SimpleGrantedAuthority(role.get("authority")));
                             }
                         }
