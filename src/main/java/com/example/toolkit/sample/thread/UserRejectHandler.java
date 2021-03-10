@@ -1,4 +1,4 @@
-package com.example.toolkit.sample.concurrency;
+package com.example.toolkit.sample.thread;
 
 import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;

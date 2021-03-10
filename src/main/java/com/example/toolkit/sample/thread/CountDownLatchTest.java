@@ -1,4 +1,4 @@
-package com.example.toolkit.sample.concurrency;
+package com.example.toolkit.sample.thread;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2019/1/6
  */
 public class CountDownLatchTest {
+
     public static void main(String[] args) {
         CountDownLatch count = new CountDownLatch(3);
         Thread thread1 = new TranslateThread("1st content", count);
@@ -31,7 +32,7 @@ public class CountDownLatchTest {
     }
 }
 
-    class TranslateThread extends Thread {
+class TranslateThread extends Thread {
     private String content;
     private final CountDownLatch count;
 

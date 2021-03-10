@@ -1,4 +1,4 @@
-package com.example.toolkit.sample.concurrency;
+package com.example.toolkit.sample.thread;
 
 /**
  * @author cph
